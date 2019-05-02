@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Ng.Contracts;
 using Ng.Core;
 using Zu.TypeScript;
+using Zu.TypeScript.Change;
 using Zu.TypeScript.TsTypes;
 
 namespace Ng.App
@@ -31,7 +32,7 @@ namespace Ng.App
             //string fileName =
             //    @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\App\Components\MyBets\MyBetsDate\MyBetsRaceday\MyBetsBet\MyBetsBetDetails\Prize\my-bet-prize.component.ts";
             //TypeScriptAST ast = new TypeScriptAST(File.ReadAllText(fileName), fileName);
-            var path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.app.json";
+            var path = @"C:\github\NgAnalyze\TestProject\tsconfig.json";// @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.app.json";
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             TsProject project = TsProject.Load(tsConfig);
             var allClasses = project.Compiled.SelectMany(p => p.Classes);
@@ -43,12 +44,25 @@ namespace Ng.App
 
             ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
             var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType))).ToList();
+            var change = new ChangeAST();
+            var firstUsage = allActions.Skip(1).First();
+            change.ChangeNode(firstUsage.Node, "/* New value goes here */");
+            var newSource = change.GetChangedSource(firstUsage.Compilation.Ast.SourceStr);
+            File.WriteAllText(Path.Combine(Path.GetDirectoryName(firstUsage.FileName), "changed.ts"), newSource);
+
 
             ////foreach (var inherits in firstAction.Classes.First().Inherits)
             ////{
             ////    Console.WriteLine(inherits);
             ////}
-            //var usages = project.FindUsages(allActions.First()).ToList();
+            var usages = project.FindUsages(allActions.Skip(1).First()).ToList();
+
+
+            //var firstUsage = usages.First();
+            //var change = new ChangeAST();
+            //change.ChangeNode(firstUsage.Node, "/* New value goes here */");
+            //var newSource = change.GetChangedSource(firstUsage.Compilation.Ast.SourceStr);
+            //File.WriteAllText(firstUsage.Compilation.FileName, newSource);
         }
 
         private static void GenerateSpecIfApplicable(string file)
