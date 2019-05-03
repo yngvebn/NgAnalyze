@@ -79,5 +79,39 @@ namespace Ng.Core
             return change;
 
         }
+
+        public ChangeAST AddImports(ChangeAST change, IEnumerable<ImportedModule> imports)
+        {
+            var groupedByPath = imports.GroupBy(i => i.Path);
+            foreach (var byPath in groupedByPath)
+            {
+                var existingImportsForPath = Imports.SingleOrDefault(i => i.FilePath == byPath.Key);
+                if (existingImportsForPath != null)
+                {
+                    var newImports = byPath.Where(imp => !existingImportsForPath.ImportedModules.Any(i => i.Name.Equals(imp.Name)));
+                    existingImportsForPath.Add(newImports);
+                    change.ChangeNode(existingImportsForPath.ImportDeclaration, existingImportsForPath.Serialize());
+                }
+            }
+            return change;
+
+        }
+
+        public ChangeAST RemoveImports(ChangeAST change, IEnumerable<ImportedModule> imports)
+        {
+            var groupedByPath = imports.GroupBy(i => i.Path);
+            foreach (var byPath in groupedByPath)
+            {
+                var existingImportsForPath = Imports.SingleOrDefault(i => i.FilePath == byPath.Key);
+                if (existingImportsForPath != null)
+                {
+                    existingImportsForPath.Remove(imports);
+                    change.Delete(existingImportsForPath.ImportDeclaration);
+                    change.ChangeNode(existingImportsForPath.ImportDeclaration, existingImportsForPath.Serialize());
+                }
+            }
+            return change;
+
+        }
     }
 }

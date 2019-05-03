@@ -12,10 +12,25 @@ namespace Ng.Core
     {
         private readonly string _sourceFileName;
         private readonly string _root;
-        private readonly ImportDeclaration _importDeclaration;
+        public ImportDeclaration ImportDeclaration { get; }
         private StringLiteral _path;
         public string[] Modules => ImportedModules.Select(i => i.Name).ToArray();
         public string FilePath => _path.Text;
+
+        public void Add(IEnumerable<ImportedModule> newImports)
+        {
+            this.ImportedModules.AddRange(newImports);
+        }
+        
+        public void Remove(IEnumerable<ImportedModule> newImports)
+        {
+            this.ImportedModules = ImportedModules.Where(i => newImports.Any(removed => removed.Equals(i))).ToList();
+        }
+
+        public string Serialize()
+        {
+            return $"import {{ {string.Join(", ", Modules.OrderBy(c => c))} }} from {_path.GetText()}";
+        }
 
         public string RelativeImportPath
         {
@@ -45,13 +60,13 @@ namespace Ng.Core
 
         public bool IsLocalImport => File.Exists(AbsolutePath);
 
-        public ImportedModule[] ImportedModules { get; private set; }
+        public List<ImportedModule> ImportedModules { get; private set; }
 
         public Imports(string sourceFileName, string root, ImportDeclaration importDeclaration)
         {
             _sourceFileName = sourceFileName;
             _root = root;
-            _importDeclaration = importDeclaration;
+            ImportDeclaration = importDeclaration;
             _path = importDeclaration.Children.OfType<StringLiteral>().First();
             var namedImports = importDeclaration.GetDescendants(false).OfType<ImportSpecifier>().Select(i => new ImportedModule(i, _path)).ToArray();
             var namespaceImports = importDeclaration.GetDescendants(false).OfType<NamespaceImport>()
@@ -59,7 +74,7 @@ namespace Ng.Core
             var allImports = new List<ImportedModule>();
             allImports.AddRange(namedImports);
             allImports.AddRange(namespaceImports);
-            ImportedModules = allImports.ToArray();
+            ImportedModules = allImports;
         }
 
         public string GetAbsoluteImport()
@@ -98,5 +113,6 @@ namespace Ng.Core
             }
 
         }
+
     }
 }

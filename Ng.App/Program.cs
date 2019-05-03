@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ng.Contracts;
 using Ng.Core;
+using Ng.Core.Conversion;
 using Zu.TypeScript;
 using Zu.TypeScript.Change;
 using Zu.TypeScript.TsTypes;
@@ -32,7 +33,7 @@ namespace Ng.App
             //string fileName =
             //    @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\App\Components\MyBets\MyBetsDate\MyBetsRaceday\MyBetsBet\MyBetsBetDetails\Prize\my-bet-prize.component.ts";
             //TypeScriptAST ast = new TypeScriptAST(File.ReadAllText(fileName), fileName);
-            var path = @"C:\github\NgAnalyze\TestProject\tsconfig.json";// @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.app.json";
+            var path = Path.GetFullPath(@"..\..\..\TestProject\tsconfig.json");// @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.app.json";
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             TsProject project = TsProject.Load(tsConfig);
             var allClasses = project.Compiled.SelectMany(p => p.Classes);
@@ -44,18 +45,53 @@ namespace Ng.App
 
             ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
             var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType))).ToList();
-            var change = new ChangeAST();
-            var firstUsage = allActions.Skip(1).First();
-            change.ChangeNode(firstUsage.Node, "/* New value goes here */");
-            var newSource = change.GetChangedSource(firstUsage.Compilation.Ast.SourceStr);
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(firstUsage.FileName), "changed.ts"), newSource);
+
+            foreach (var group in allActions.GroupBy(a => a.FileName))
+            {
+                var change = new ChangeAST();
+                var file = group.First().Compilation;
+                List<ImportedModule> newImports = new List<ImportedModule>();
+                foreach (var action in group)
+                {
+                    var conversion = new ClassToCreateAction().Convert(action);
+                    change.ChangeNode(action.Node, conversion.Output);
+                    newImports.AddRange(conversion.RequiredImports);
+
+                    var usages = project.FindUsages(action).ToList();
+
+                    foreach (var usagesByFile in usages.GroupBy(a => a.Compilation.FileName))
+                    {
+                        List<ImportedModule> newUsagesImports = new List<ImportedModule>();
+                        List<ImportedModule> removedUsagesImports = new List<ImportedModule>();
+
+                        var usagesFile = usagesByFile.First().Compilation;
+                        ChangeAST changesInUsages = new ChangeAST();
+
+                        foreach (var usage in usagesByFile)
+                        {
+                            var usageConversion = new UsageToNewAction().Convert(usage);
+                            changesInUsages.ChangeNode(usage.Node, usageConversion.Output);
+                            newUsagesImports.AddRange(usageConversion.RequiredImports);
+                            removedUsagesImports.AddRange(usageConversion.RemovedImports);
+                        }
+                        usagesFile.AddImports(changesInUsages, newUsagesImports.Distinct());
+                        usagesFile.RemoveImports(changesInUsages, removedUsagesImports.Distinct());
+                        var newUsagesSource = changesInUsages.GetChangedSource(usagesFile.Ast.SourceStr);
+
+                        File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), "../changed", $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
+                    }
+                }
+                file.AddImports(change, newImports.Distinct());
+                var newSource = change.GetChangedSource(group.First().Compilation.Ast.SourceStr);
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(file .FileName), "../changed", $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
 
 
+            }
+            
             ////foreach (var inherits in firstAction.Classes.First().Inherits)
             ////{
             ////    Console.WriteLine(inherits);
             ////}
-            var usages = project.FindUsages(allActions.Skip(1).First()).ToList();
 
 
             //var firstUsage = usages.First();

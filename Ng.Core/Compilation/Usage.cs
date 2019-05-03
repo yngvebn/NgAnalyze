@@ -7,5 +7,6 @@ namespace Ng.Core
         public TypescriptCompilation Compilation { get; set; }
         public Node Node { get; set; }
         public TypeScriptClass Lookup { get; set; }
+        public bool IsNamespaceImport { get; set; }
     }
 }

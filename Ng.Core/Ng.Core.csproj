@@ -55,6 +55,7 @@
     <Compile Include="Compilation\TypescriptCompilation.cs" />
     <Compile Include="Compilation\TypeScriptProperty.cs" />
     <Compile Include="Compilation\Usage.cs" />
+    <Compile Include="Conversion\ClassToCreateAction.cs" />
     <Compile Include="Interfaces\IReadTsConfig.cs" />
     <Compile Include="Contracts\NgModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

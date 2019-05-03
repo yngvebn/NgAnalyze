@@ -71,7 +71,7 @@ namespace Ng.Core
             foreach (var compilation in compilations)
             {
                 var import = compilation.FindImport(first);
-                if (import.ImportedModules.Length == 1 && import.ImportedModules.First().IsNamespaceImport)
+                if (import.ImportedModules.Count == 1 && import.ImportedModules.First().IsNamespaceImport)
                 {
                     var namespaceImport = import.ImportedModules.First();
                     var usages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
@@ -80,7 +80,8 @@ namespace Ng.Core
                     {
                         Compilation = compilation,
                         Node = usage,
-                        Lookup = first
+                        Lookup = first,
+                        IsNamespaceImport = true
                     }));
                 }
                 else

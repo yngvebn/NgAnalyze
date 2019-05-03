@@ -1,14 +1,18 @@
-﻿using Zu.TypeScript.TsTypes;
+﻿using System.Linq;
+using Zu.TypeScript.TsTypes;
 
 namespace Ng.Core
 {
     public class TypeScriptProperty
     {
-        private PropertyDeclaration arg;
+        public string Name => _arg.Children.OfType<Identifier>().First().GetText();
+        public string Type => _arg.Children.Last().GetText();
+        private PropertyDeclaration _arg;
 
         public TypeScriptProperty(PropertyDeclaration arg)
         {
-            this.arg = arg;
+            _arg = arg;
+      
         }
 
         public static TypeScriptProperty Create(PropertyDeclaration arg)

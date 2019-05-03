@@ -2,10 +2,25 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Text.RegularExpressions;
 using Zu.TypeScript.TsTypes;
 
 namespace Ng.Core
 {
+
+    public static class NodeExtensions
+    {
+        public static string Serialize(this Modifier modifier)
+        {
+            return modifier?.GetText();
+        }
+
+        public static string Serialize(this TypeNode node)
+        {
+            return $": {node?.GetText()}";
+        }
+    }
 
     public class Parameter
     {
@@ -31,8 +46,33 @@ namespace Ng.Core
 
         private bool IsInitializer(Node arg)
         {
-            return arg is StringLiteral || arg is NumericLiteral || arg is NullLiteral || arg is BooleanLiteral;
+            return arg is StringLiteral || arg is NumericLiteral || arg.Kind == SyntaxKind.NullKeyword|| arg is BooleanLiteral;
 
+        }
+
+        public string SerializeToString()
+        {
+            var definition = $"{Name}{(Nullable ? "?" : "")}{Type.Serialize()}";
+            definition = Regex.Replace(definition, "\\s\\s+", " ");
+            return $"{definition}{(Initializer != null ? $" = {Initializer.GetText()}" : "")}".Trim();
+        }
+    }
+
+    public class Property
+    {
+
+        public string Name => arg.Children.OfType<Identifier>().First().GetText();
+        public string Type => arg.Children.OfType<PropertyAccessExpression>().First().GetText();
+        private PropertyDeclaration arg;
+
+        public Property(PropertyDeclaration arg)
+        {
+            this.arg = arg;
+        }
+
+        public static Property Create(PropertyDeclaration arg)
+        {
+            return new Property(arg);
         }
     }
 
@@ -42,7 +82,6 @@ namespace Ng.Core
         public string FileName => ((SourceFile) Node.Parent).FileName;
         public bool Exported => Node.Children.OfType<Modifier>().Any(m => m.Kind == SyntaxKind.ExportKeyword);
         public string Name => Node.Children.OfType<Identifier>().First().GetText();
-
         public IEnumerable<ImportedModule> Inherits => this.Node.Children.OfType<HeritageClause>()
             .Select(SelectImportFromInheritage);
 
