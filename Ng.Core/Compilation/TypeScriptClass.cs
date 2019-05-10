@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -76,6 +77,22 @@ namespace Ng.Core
         }
     }
 
+    public class TypeAliasDefinition
+    {
+        public TypeAliasDeclaration Node { get; }
+        public string Name => Node.Children.OfType<Identifier>().First().GetText();
+
+        public TypeAliasDefinition(TypeAliasDeclaration node)
+        {
+            Node = node;
+        }
+
+        public static TypeAliasDefinition Create(TypeAliasDeclaration node)
+        {
+            return new TypeAliasDefinition(node);
+        }
+    }
+
     [DebuggerDisplay("{Name}")]
     public class TypeScriptClass
     {
@@ -88,6 +105,8 @@ namespace Ng.Core
         public IEnumerable<Parameter> ConstructorArguments => this.Node.GetDescendants()
             .OfType<ConstructorDeclaration>().FirstOrDefault()?.GetDescendants().OfType<ParameterDeclaration>()
             .Select(Parameter.Create);
+
+
 
         private ImportedModule SelectImportFromInheritage(HeritageClause heritageClause)
         {

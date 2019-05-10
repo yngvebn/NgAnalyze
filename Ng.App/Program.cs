@@ -17,33 +17,43 @@ namespace Ng.App
 {
     public class Change
     {
+        public TypescriptCompilation Compilation { get; }
         public ChangeAST ChangeAst { get; set; }
-        public string FileName { get; set; }
+        public string FileName => Compilation.FileName;
         public List<ImportedModule> ImportsToAdd = new List<ImportedModule>();
         public List<ImportedModule> ImportsToRemove = new List<ImportedModule>();
 
-        public Change(string fileName)
+        public Change(TypescriptCompilation compilation)
         {
-            FileName = fileName;
+            Compilation = compilation;
             ChangeAst = new ChangeAST();
         }
 
         public void ChangeNode(Node actionNode, string conversionOutput)
         {
-            try
-            {
-                ChangeAst.ChangeNode(actionNode, conversionOutput);
-            }
-            catch
-            {
-                Console.WriteLine($"Error change {actionNode.GetText()} in {FileName}. Perform manual change");
-            }
-            
+            ChangeAst.ChangeNode(actionNode, conversionOutput);
         }
 
-        public string GetChangedSource(string astSourceStr)
+        public string GetChangedSource()
         {
-            return ChangeAst.GetChangedSource(astSourceStr);
+            Compilation.AddRemoveImports(ChangeAst, ImportsToAdd.Distinct(), ImportsToRemove.Distinct());
+            return ChangeAst.GetChangedSource(Compilation.Ast.SourceStr);
+        }
+
+        public void AddRemoveImports(IEnumerable<ImportedModule> distinct, IEnumerable<ImportedModule> removedUsagesImports)
+        {
+            this.ImportsToAdd.AddRange(distinct);
+            this.ImportsToRemove.AddRange(removedUsagesImports);
+        }
+
+        public void Append(string union)
+        {
+            ChangeAst.InsertAfter(Compilation.Ast.RootNode.Children.Last(), union);
+        }
+
+        public void Delete(INode typeAlias)
+        {
+            ChangeAst.Delete(typeAlias);
         }
     }
 
@@ -56,13 +66,15 @@ namespace Ng.App
             _dictionary = new Dictionary<string, Change>();
         }
 
-        public Change Get(string fileName)
+        public IEnumerable<Change> All => _dictionary.Values;
+
+        public Change Get(TypescriptCompilation compilation)
         {
-            if (_dictionary.ContainsKey(fileName)) return _dictionary[fileName];
+            if (_dictionary.ContainsKey(compilation.FileName)) return _dictionary[compilation.FileName];
 
-            _dictionary.Add(fileName, new Change(fileName));
+            _dictionary.Add(compilation.FileName, new Change(compilation));
 
-            return _dictionary[fileName];
+            return _dictionary[compilation.FileName];
         }
     }
 
@@ -87,6 +99,7 @@ namespace Ng.App
             //TypeScriptAST ast = new TypeScriptAST(File.ReadAllText(fileName), fileName);
             var path = Path.GetFullPath(@"..\..\..\TestProject\tsconfig.json");// 
             path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
+            path = @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
 
@@ -110,15 +123,17 @@ namespace Ng.App
             foreach (var group in allActions.GroupBy(a => a.FileName))
             {
                 var file = group.First().Compilation;
-                var change = changes.Get(file.FileName);
-                
+                var change = changes.Get(file);
+
                 List<ImportedModule> newImports = new List<ImportedModule>();
+                List<ImportedModule> removedImports = new List<ImportedModule>();
+                List<string> actionNames = new List<string>();
                 foreach (var action in group)
                 {
                     var conversion = new ClassToCreateAction().Convert(action);
                     change.ChangeNode(action.Node, conversion.Output);
                     newImports.AddRange(conversion.RequiredImports);
-
+                    removedImports.AddRange(conversion.RemovedImports);
                     var usages = project.FindUsages(action).ToList();
                     var importsToAdd = new List<ImportedModule>();
                     var importsToRemove = new List<ImportedModule>();
@@ -126,35 +141,55 @@ namespace Ng.App
                     foreach (var usagesByFile in usages.GroupBy(a => a.Compilation.FileName))
                     {
                         var usagesFile = usagesByFile.First().Compilation;
-                        var changesInUsages = changes.Get(usagesFile.FileName);
+                        var changesInUsages = changes.Get(usagesFile);
 
                         List<ImportedModule> newUsagesImports = new List<ImportedModule>();
                         List<ImportedModule> removedUsagesImports = new List<ImportedModule>();
-                        
+
                         foreach (var usage in usagesByFile)
                         {
                             var usageConversion = new UsageToNewAction().Convert(usage);
-                            changesInUsages.ChangeNode(usage.Node, usageConversion.Output);
+                            changesInUsages.ChangeNode(usageConversion.NodeToTarget as Node, usageConversion.Output);
                             newUsagesImports.AddRange(usageConversion.RequiredImports);
                             removedUsagesImports.AddRange(usageConversion.RemovedImports);
                         }
                         importsToAdd.AddRange(newUsagesImports);
                         importsToRemove.AddRange(removedUsagesImports);
-                        usagesFile.AddRemoveImports(changesInUsages.ChangeAst, newUsagesImports.Distinct(), removedUsagesImports);
-                        var newUsagesSource = changesInUsages.GetChangedSource(usagesFile.Ast.SourceStr);
-                        //File.WriteAllText(usagesFile.FileName, newUsagesSource);
-
-                        File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileName(usagesFile.FileName)}"), newUsagesSource);
+                        changesInUsages.AddRemoveImports(newUsagesImports.Distinct(), removedUsagesImports);
+         
 
                         //File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
                     }
+                    
                 }
-                file.AddImports(change.ChangeAst, newImports.Distinct());
-                var newSource = change.GetChangedSource(group.First().Compilation.Ast.SourceStr);
+                // TODO: Create actions-union
+
+                foreach (var queuedChange in changes.All)
+                {
+                    //usagesFile.AddRemoveImports(changesInUsages.ChangeAst, newUsagesImports.Distinct(), removedUsagesImports);
+                    var newUsagesSource = queuedChange.GetChangedSource();
+                    //File.WriteAllText(usagesFile.FileName, newUsagesSource);
+
+                    File.WriteAllText(Path.Combine(Path.GetDirectoryName(queuedChange.FileName), $"{Path.GetFileName(queuedChange.FileName)}"), newUsagesSource);
+                }
+                string union =
+                    $"\n\nconst all = union({{ {string.Join(", ", group.Select(action => action.Name.ToCamelCase()))} }});";
+
+                newImports.Add(new ImportedModule("union", "@ngrx/store"));
+                change.Append(union);
+
+                var typeAlias = file.TypeAliases.LastOrDefault();
+                if(typeAlias != null) { 
+                    change.Delete(typeAlias.Node);
+                    string newTypeAlias = $"\nexport type {typeAlias.Name} = typeof all;\n";
+                    change.Append(newTypeAlias);
+                }
+                change.AddRemoveImports(newImports.Distinct(), removedImports.Distinct());
+                var newSource = change.GetChangedSource();
                 //File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
                 File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileName(file.FileName)}"), newSource);
             }
-            
+
             ////foreach (var inherits in firstAction.Classes.First().Inherits)
             ////{
             ////    Console.WriteLine(inherits);

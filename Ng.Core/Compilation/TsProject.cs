@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Ng.Contracts;
 using Zu.TypeScript;
 using Zu.TypeScript.TsTypes;
@@ -12,12 +13,12 @@ namespace Ng.Core
     {
         public static IEnumerable<Usage> FindUsages(this TsProject<TypescriptCompilation> tsProject, TypeScriptClass first)
         {
-            var compilations =  tsProject.Compiled.Where(c => c.Imports != null && 
-                                            c.Imports
-                                                .Where(i => i.IsLocalImport)
-                                                .Any(i => (i.AbsolutePath.Equals(first.FileName) && i.ImportedModules.Any(m => m.Name.Equals(first.Name))) || 
-                                                          i.AbsolutePath.Equals(first.FileName) && i.ImportedModules.Any(m => m.Name.Equals("*"))
-                                                          )).ToList();
+            var compilations = tsProject.Compiled.Where(c => c.Imports != null &&
+                                           c.Imports
+                                               .Where(i => i.IsLocalImport)
+                                               .Any(i => (i.AbsolutePath.Equals(first.FileName) && i.ImportedModules.Any(m => m.Name.Equals(first.Name))) ||
+                                                         i.AbsolutePath.Equals(first.FileName) && i.ImportedModules.Any(m => m.Name.Equals("*"))
+                                                         )).ToList();
             List<Usage> positions = new List<Usage>();
 
             foreach (var compilation in compilations)
@@ -26,8 +27,10 @@ namespace Ng.Core
                 if (import.ImportedModules.Count == 1 && import.ImportedModules.First().IsNamespaceImport)
                 {
                     var namespaceImport = import.ImportedModules.First();
-                    var usages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
-                        .Where(i => IsNamespaceImportedClass(first, i, namespaceImport)).Select(p => p.GetAncestors().OfType<CallExpression>().FirstOrDefault()).Where(f => f != null);
+                    var potentialUsages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
+                        .Where(i => IsNamespaceImportedClass(first, i, namespaceImport));
+
+                    var usages = potentialUsages.Where(p => p.Parent is NewExpression || p.Parent.Parent is NewExpression).Select(p => p.Parent is NewExpression ? p.Parent : p.Parent.Parent);
                     positions.AddRange(usages.Select(usage => new Usage
                     {
                         Compilation = compilation,
@@ -38,8 +41,9 @@ namespace Ng.Core
                 }
                 else
                 {
-                    var usages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
-                        .Where(i => i.IdentifierStr.Equals(first.Name)).Select(p => p.GetAncestors().OfType<CallExpression>().FirstOrDefault()).Where(f => f != null);
+                    var potentialUsages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
+                        .Where(i => i.IdentifierStr.Equals(first.Name));
+                    var usages = potentialUsages.Where(p => p.Parent is NewExpression || p.Parent.Parent is NewExpression).Select(p => p.Parent is NewExpression ? p.Parent : p.Parent.Parent);
                     positions.AddRange(usages.Select(usage => new Usage
                     {
                         Compilation = compilation,
@@ -51,7 +55,7 @@ namespace Ng.Core
 
             return positions;
         }
-        
+
 
         private static bool IsNamespaceImportedClass(TypeScriptClass classToMatch, Identifier identifier, ImportedModule namespaceImport)
         {
@@ -79,24 +83,26 @@ namespace Ng.Core
             var projectFiles = GetProjectFiles().ToList();
             int i = 0;
             Console.WriteLine("Loading...");
-            Files = projectFiles.Select(file =>
+            var files = new List<TypeScriptAST>();
+            Parallel.ForEach(projectFiles, file =>
             {
                 i++;
-                Console.SetCursorPosition(0, Console.CursorTop - 1);
+                Console.SetCursorPosition(0, 0);
                 Console.WriteLine($"Loading {i}/{projectFiles.Count} - {file}");
-                return new TypeScriptAST(file, Path.GetFileName(file));
-            }).ToList();
+                files.Add(new TypeScriptAST(file, Path.GetFileName(file)));
+            });
+            Files = files;
             Console.WriteLine("Compiling...");
             i = 0;
-
-            Compiled = projectFiles.Select(file =>
-                {
-                    i++;
-                    Console.SetCursorPosition(0, Console.CursorTop - 1);
-                    Console.WriteLine($"Compiling {i}/{projectFiles.Count} - {file}");
-                    return createCompiled(file, tsconfig.RootDir);
-                })
-                .ToList();
+            var compiled = new List<T>();
+            Parallel.ForEach(projectFiles, file =>
+            {
+                i++;
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine($"Compiling {i}/{projectFiles.Count} - {file}");
+                compiled.Add(createCompiled(file, tsconfig.RootDir));
+            });
+            Compiled = compiled;
         }
 
         private IEnumerable<string> GetProjectFiles()
@@ -110,6 +116,6 @@ namespace Ng.Core
             }
         }
 
-        
+
     }
 }

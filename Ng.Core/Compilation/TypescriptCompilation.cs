@@ -22,6 +22,9 @@ namespace Ng.Core
         public IEnumerable<TypeScriptClass> Classes =>
             _classDeclarations.Select(c => TypeScriptClass.Create(c, this));
         public IEnumerable<string> ClassName => _classDeclarations.Select(c => c.Name.GetText());
+        public IEnumerable<TypeAliasDefinition> TypeAliases =>
+            this._root.Children.OfType<TypeAliasDeclaration>().Select(TypeAliasDefinition.Create);
+
 
         public static TypescriptCompilation CreateCompiled(string fileName, string root)
         {
@@ -116,7 +119,7 @@ namespace Ng.Core
 
         }
 
-        public ChangeAST AddRemoveImports(ChangeAST change, IEnumerable<ImportedModule> toAdd, List<ImportedModule> removedUsagesImports)
+        public ChangeAST AddRemoveImports(ChangeAST change, IEnumerable<ImportedModule> toAdd, IEnumerable<ImportedModule> removedUsagesImports)
         {
             List<Imports> toChange = new List<Imports>();
             var allImports = new List<ImportedModule>();
