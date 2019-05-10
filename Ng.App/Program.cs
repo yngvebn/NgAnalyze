@@ -15,6 +15,49 @@ using Zu.TypeScript.TsTypes;
 
 namespace Ng.App
 {
+    public class Change
+    {
+        public ChangeAST ChangeAst { get; set; }
+        public string FileName { get; set; }
+        public List<ImportedModule> ImportsToAdd = new List<ImportedModule>();
+        public List<ImportedModule> ImportsToRemove = new List<ImportedModule>();
+
+        public Change(string fileName)
+        {
+            FileName = fileName;
+            ChangeAst = new ChangeAST();
+        }
+
+        public void ChangeNode(Node actionNode, string conversionOutput)
+        {
+            ChangeAst.ChangeNode(actionNode, conversionOutput);
+        }
+
+        public string GetChangedSource(string astSourceStr)
+        {
+            return ChangeAst.GetChangedSource(astSourceStr);
+        }
+    }
+
+    public class Changes
+    {
+        private readonly Dictionary<string, Change> _dictionary;
+
+        public Changes()
+        {
+            _dictionary = new Dictionary<string, Change>();
+        }
+
+        public Change Get(string fileName)
+        {
+            if (_dictionary.ContainsKey(fileName)) return _dictionary[fileName];
+
+            _dictionary.Add(fileName, new Change(fileName));
+
+            return _dictionary[fileName];
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -51,14 +94,16 @@ namespace Ng.App
             //    projectWideImports.All(import => import != filename)).ToList();
 
             ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
-            var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType))).Take(1)
+            var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType)))
                 //.Where(a => a.FileName.EndsWith("form-rows-gallop.actions.ts"))
                 .ToList();
 
+            var changes = new Changes();
             foreach (var group in allActions.GroupBy(a => a.FileName))
             {
-                var change = new ChangeAST();
                 var file = group.First().Compilation;
+                var change = changes.Get(file.FileName);
+                
                 List<ImportedModule> newImports = new List<ImportedModule>();
                 foreach (var action in group)
                 {
@@ -67,15 +112,17 @@ namespace Ng.App
                     newImports.AddRange(conversion.RequiredImports);
 
                     var usages = project.FindUsages(action).ToList();
+                    var importsToAdd = new List<ImportedModule>();
+                    var importsToRemove = new List<ImportedModule>();
 
                     foreach (var usagesByFile in usages.GroupBy(a => a.Compilation.FileName))
                     {
+                        var usagesFile = usagesByFile.First().Compilation;
+                        var changesInUsages = changes.Get(usagesFile.FileName);
+
                         List<ImportedModule> newUsagesImports = new List<ImportedModule>();
                         List<ImportedModule> removedUsagesImports = new List<ImportedModule>();
-
-                        var usagesFile = usagesByFile.First().Compilation;
-                        ChangeAST changesInUsages = new ChangeAST();
-
+                        
                         foreach (var usage in usagesByFile)
                         {
                             var usageConversion = new UsageToNewAction().Convert(usage);
@@ -83,20 +130,21 @@ namespace Ng.App
                             newUsagesImports.AddRange(usageConversion.RequiredImports);
                             removedUsagesImports.AddRange(usageConversion.RemovedImports);
                         }
-                        usagesFile.AddRemoveImports(changesInUsages, newUsagesImports.Distinct(), removedUsagesImports);
-                        usagesFile.RemoveImports(changesInUsages, removedUsagesImports.Distinct());
+                        importsToAdd.AddRange(newUsagesImports);
+                        importsToRemove.AddRange(removedUsagesImports);
+                        usagesFile.AddRemoveImports(changesInUsages.ChangeAst, newUsagesImports.Distinct(), removedUsagesImports);
                         var newUsagesSource = changesInUsages.GetChangedSource(usagesFile.Ast.SourceStr);
                         //File.WriteAllText(usagesFile.FileName, newUsagesSource);
 
-                        File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"..\\changed\\{Path.GetFileName(usagesFile.FileName)}"), newUsagesSource);
+                        File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileName(usagesFile.FileName)}"), newUsagesSource);
 
                         //File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
                     }
                 }
-                file.AddImports(change, newImports.Distinct());
+                file.AddImports(change.ChangeAst, newImports.Distinct());
                 var newSource = change.GetChangedSource(group.First().Compilation.Ast.SourceStr);
                 //File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
-                File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"..\\changed\\{Path.GetFileName(file.FileName)}"), newSource);
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileName(file.FileName)}"), newSource);
             }
             
             ////foreach (var inherits in firstAction.Classes.First().Inherits)
