@@ -1,9 +1,9 @@
-import * as actions from './actions';
+import { OtherAction } from './actions';
 import { Service } from './service1';
 
 export class OtherService {
     public dispatchSomething() {
-        new Service().dispatch(actions.otherAction(
+        new Service().dispatch(new OtherAction(
             33
         ));
 
