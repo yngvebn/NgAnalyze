@@ -8,6 +8,8 @@ using Zu.TypeScript.TsTypes;
 
 namespace Ng.Core
 {
+
+
     public class TypescriptCompilation
     {
 
@@ -113,5 +115,34 @@ namespace Ng.Core
             return change;
 
         }
+
+        public ChangeAST AddRemoveImports(ChangeAST change, IEnumerable<ImportedModule> distinct, List<ImportedModule> removedUsagesImports)
+        {
+
+            foreach (var byPath in distinct.GroupBy(i => i.Path))
+            {
+                var existingImportsForPath = Imports.SingleOrDefault(i => i.FilePath == byPath.Key);
+                if (existingImportsForPath != null)
+                {
+                    var newImports = byPath.Where(imp => !existingImportsForPath.ImportedModules.Any(i => i.Name.Equals(imp.Name)));
+                    existingImportsForPath.Add(newImports);
+                    change.ChangeNode(existingImportsForPath.ImportDeclaration, existingImportsForPath.Serialize());
+                }
+            }
+
+            foreach (var byPath in removedUsagesImports.GroupBy(i => i.Path))
+            {
+                var existingImportsForPath = Imports.SingleOrDefault(i => i.FilePath == byPath.Key);
+                if (existingImportsForPath != null)
+                {
+                    existingImportsForPath.Remove(removedUsagesImports);
+                    change.Delete(existingImportsForPath.ImportDeclaration);
+                    change.ChangeNode(existingImportsForPath.ImportDeclaration, existingImportsForPath.Serialize());
+                }
+            }
+            
+            return change;
+        }
+
     }
 }

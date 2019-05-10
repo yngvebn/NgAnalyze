@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ng.Contracts;
 using Ng.Core;
+using Ng.Core.Compilation.v2;
 using Ng.Core.Conversion;
 using Zu.TypeScript;
 using Zu.TypeScript.Change;
@@ -33,9 +34,15 @@ namespace Ng.App
             //string fileName =
             //    @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\App\Components\MyBets\MyBetsDate\MyBetsRaceday\MyBetsBet\MyBetsBetDetails\Prize\my-bet-prize.component.ts";
             //TypeScriptAST ast = new TypeScriptAST(File.ReadAllText(fileName), fileName);
-            var path = Path.GetFullPath(@"..\..\..\TestProject\tsconfig.json");// @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.app.json";
+            var path = Path.GetFullPath(@"..\..\..\TestProject\tsconfig.json");// 
+            //path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
-            TsProject project = TsProject.Load(tsConfig);
+            AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
+
+            TsProject<TypescriptCompilation> project = TsProject<TypescriptCompilation>.Load(tsConfig, (TypescriptCompilation.CreateCompiled));
+
+            //TsProject<TypescriptFile> projectV2 = TsProject<TypescriptFile>.Load<TypescriptFile>(tsConfig, TypescriptFile.Load);
+
             var allClasses = project.Compiled.SelectMany(p => p.Classes);
 
             //var projectWideImports = project.Compiled.SelectMany(c => c.Imports).Select(i => i.AbsolutePath).Distinct().ToList();
@@ -44,7 +51,9 @@ namespace Ng.App
             //    projectWideImports.All(import => import != filename)).ToList();
 
             ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
-            var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType))).ToList();
+            var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType))).Take(1)
+                //.Where(a => a.FileName.EndsWith("form-rows-gallop.actions.ts"))
+                .ToList();
 
             foreach (var group in allActions.GroupBy(a => a.FileName))
             {
@@ -74,18 +83,20 @@ namespace Ng.App
                             newUsagesImports.AddRange(usageConversion.RequiredImports);
                             removedUsagesImports.AddRange(usageConversion.RemovedImports);
                         }
-                        usagesFile.AddImports(changesInUsages, newUsagesImports.Distinct());
+                        usagesFile.AddRemoveImports(changesInUsages, newUsagesImports.Distinct(), removedUsagesImports);
                         usagesFile.RemoveImports(changesInUsages, removedUsagesImports.Distinct());
                         var newUsagesSource = changesInUsages.GetChangedSource(usagesFile.Ast.SourceStr);
+                        //File.WriteAllText(usagesFile.FileName, newUsagesSource);
 
-                        File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), "../changed", $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
+                        File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"..\\changed\\{Path.GetFileName(usagesFile.FileName)}"), newUsagesSource);
+
+                        //File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
                     }
                 }
                 file.AddImports(change, newImports.Distinct());
                 var newSource = change.GetChangedSource(group.First().Compilation.Ast.SourceStr);
-                File.WriteAllText(Path.Combine(Path.GetDirectoryName(file .FileName), "../changed", $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
-
-
+                //File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"..\\changed\\{Path.GetFileName(file.FileName)}"), newSource);
             }
             
             ////foreach (var inherits in firstAction.Classes.First().Inherits)

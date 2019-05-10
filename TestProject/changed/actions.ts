@@ -14,14 +14,15 @@ export const testAction = createAction(
 );
 
 
-export const otherAction = createAction(
-	OTHER_ACTION,
-	(age: number, min?: number, meta: string = 'test', stuff: any = null, data: number = 10) => ({ age, min, meta, stuff, data })
-);
 
+export class OtherAction implements Action {
+    type = OTHER_ACTION;
 
-export const thirdAction = createAction(
-	'Third Action',
-	(isValid: boolean) => ({ isValid })
-);
+    constructor(public age: number, public min?: number, public meta: string = 'test', public stuff: any = null, public data: number = 10) { }
+}
 
+export class ThirdAction implements Action {
+    type = 'Third Action';
+
+    constructor(public isValid: boolean) { }
+}
