@@ -3,14 +3,14 @@ import * as actions from './actions';
 
 export class Service {
 
-    public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');
+    public action: actions.OtherAction =actions.otherAction(99, null, 'Hello world');
 
     public doSomething() {
-        this.dispatch(new actions.OtherAction(44));
+        this.dispatch(actions.otherAction(44));
 
-        this.dispatch(new actions.OtherAction(58));
+        this.dispatch(actions.otherAction(58));
 
-        this.dispatch(new actions.TestAction('My name'));
+        this.dispatch(actions.testAction('My name'));
     }
 
     dispatch(action: Action) {

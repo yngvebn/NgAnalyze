@@ -129,7 +129,7 @@ namespace Ng.Core
                 if (existingImportsForPath != null)
                 {
                     var newImports = toAdd.Where(imp => !existingImportsForPath.ImportedModules.Any(i => i.Name.Equals(imp.Name)));
-                    var removedImports = removedUsagesImports.Where(imp => !existingImportsForPath.ImportedModules.Any(i => i.Name.Equals(imp.Name)));
+                    var removedImports = removedUsagesImports.Where(imp => existingImportsForPath.ImportedModules.Any(i => i.Name.Equals(imp.Name)));
 
                     existingImportsForPath.Add(newImports);
                     existingImportsForPath.Remove(removedImports);

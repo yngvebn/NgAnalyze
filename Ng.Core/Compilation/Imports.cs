@@ -24,7 +24,7 @@ namespace Ng.Core
         
         public void Remove(IEnumerable<ImportedModule> newImports)
         {
-            this.ImportedModules = ImportedModules.Where(i => newImports.Any(removed => removed.Equals(i))).ToList();
+            this.ImportedModules = ImportedModules.Where(i => !newImports.Any(removed => removed.Equals(i))).ToList();
         }
 
         public string Serialize()

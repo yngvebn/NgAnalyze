@@ -30,7 +30,15 @@ namespace Ng.App
 
         public void ChangeNode(Node actionNode, string conversionOutput)
         {
-            ChangeAst.ChangeNode(actionNode, conversionOutput);
+            try
+            {
+                ChangeAst.ChangeNode(actionNode, conversionOutput);
+            }
+            catch
+            {
+                Console.WriteLine($"Error change {actionNode.GetText()} in {FileName}. Perform manual change");
+            }
+            
         }
 
         public string GetChangedSource(string astSourceStr)
@@ -78,7 +86,7 @@ namespace Ng.App
             //    @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\App\Components\MyBets\MyBetsDate\MyBetsRaceday\MyBetsBet\MyBetsBetDetails\Prize\my-bet-prize.component.ts";
             //TypeScriptAST ast = new TypeScriptAST(File.ReadAllText(fileName), fileName);
             var path = Path.GetFullPath(@"..\..\..\TestProject\tsconfig.json");// 
-            //path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
+            path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
 
@@ -95,7 +103,7 @@ namespace Ng.App
 
             ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
             var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType)))
-                //.Where(a => a.FileName.EndsWith("form-rows-gallop.actions.ts"))
+                .Where(a => a.FileName.EndsWith("form-rows-gallop.actions.ts"))
                 .ToList();
 
             var changes = new Changes();
@@ -158,6 +166,8 @@ namespace Ng.App
             //change.ChangeNode(firstUsage.Node, "/* New value goes here */");
             //var newSource = change.GetChangedSource(firstUsage.Compilation.Ast.SourceStr);
             //File.WriteAllText(firstUsage.Compilation.FileName, newSource);
+            Console.WriteLine("Done!");
+            Console.ReadLine();
         }
 
         private static void GenerateSpecIfApplicable(string file)
