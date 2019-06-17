@@ -618,735 +618,6 @@
     },
     {
       "RootDirectory": "C:\\github\\ng-analyze\\TestProject\\",
-      "Filename": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-      "RootConstruct": {
-        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-        "Modifier": 0,
-        "IsExported": false,
-        "Name": "defaultAction",
-        "ExportToken": null,
-        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-        "Constructs": [
-          {
-            "FilePath": "./actions",
-            "ImportedModules": [
-              {
-                "IsLocalImport": false,
-                "As": null,
-                "Name": "TestAction",
-                "Alias": null,
-                "Path": "./actions",
-                "IsNamespaceImport": false,
-                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts#TestAction"
-              }
-            ],
-            "IsLocalImport": true,
-            "RelativeImportPath": "./actions",
-            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts",
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": "defaultAction",
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "defaultAction",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 70,
-                    "NodeType": "Identifier",
-                    "Text": "defaultAction"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "TestAction",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "TestAction",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "TestAction"
-                          }
-                        ],
-                        "NodeKind": 241,
-                        "NodeType": "ImportSpecifier",
-                        "Text": "TestAction"
-                      }
-                    ],
-                    "NodeKind": 240,
-                    "NodeType": "NamedImports",
-                    "Text": "{ TestAction }"
-                  }
-                ],
-                "NodeKind": 238,
-                "NodeType": "ImportClause",
-                "Text": "defaultAction, { TestAction }"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 9,
-                "NodeType": "StringLiteral",
-                "Text": "'./actions'"
-              }
-            ],
-            "NodeKind": 237,
-            "NodeType": "ImportDeclaration",
-            "Text": "import defaultAction, { TestAction } from './actions';"
-          },
-          {
-            "FilePath": "./service1",
-            "ImportedModules": [
-              {
-                "IsLocalImport": false,
-                "As": null,
-                "Name": "Service",
-                "Alias": null,
-                "Path": "./service1",
-                "IsNamespaceImport": false,
-                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts#Service"
-              }
-            ],
-            "IsLocalImport": true,
-            "RelativeImportPath": "./service1",
-            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": "Service",
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "Service",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "Service",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "Service",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "Service"
-                          }
-                        ],
-                        "NodeKind": 241,
-                        "NodeType": "ImportSpecifier",
-                        "Text": "Service"
-                      }
-                    ],
-                    "NodeKind": 240,
-                    "NodeType": "NamedImports",
-                    "Text": "{ Service }"
-                  }
-                ],
-                "NodeKind": 238,
-                "NodeType": "ImportClause",
-                "Text": "{ Service }"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 9,
-                "NodeType": "StringLiteral",
-                "Text": "'./service1'"
-              }
-            ],
-            "NodeKind": 237,
-            "NodeType": "ImportDeclaration",
-            "Text": "import { Service } from './service1';"
-          },
-          {
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-            "Modifier": 0,
-            "IsExported": true,
-            "Name": "OtherService",
-            "ExportToken": {
-              "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-              "Name": "OtherService"
-            },
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 83,
-                "NodeType": "Modifier",
-                "Text": "export"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 70,
-                "NodeType": "Identifier",
-                "Text": "OtherService"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "dispatchSomething",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 113,
-                    "NodeType": "Modifier",
-                    "Text": "public"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 70,
-                    "NodeType": "Identifier",
-                    "Text": "dispatchSomething"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "Service",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "Service",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "Service",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "Service",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": "Service",
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "Service"
-                                      }
-                                    ],
-                                    "NodeKind": 181,
-                                    "NodeType": "NewExpression",
-                                    "Text": "new Service()"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "dispatch"
-                                  }
-                                ],
-                                "NodeKind": 178,
-                                "NodeType": "PropertyAccessExpression",
-                                "Text": "new Service().dispatch"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "defaultAction",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "defaultAction"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 9,
-                                    "NodeType": "StringLiteral",
-                                    "Text": "'Hello world!'"
-                                  }
-                                ],
-                                "NodeKind": 181,
-                                "NodeType": "NewExpression",
-                                "Text": "new defaultAction('Hello world!')"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "new Service().dispatch(new defaultAction('Hello world!'))"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "new Service().dispatch(new defaultAction('Hello world!'));"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "Service",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "Service",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "Service",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": "Service",
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "Service"
-                                      }
-                                    ],
-                                    "NodeKind": 181,
-                                    "NodeType": "NewExpression",
-                                    "Text": "new Service()"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "dispatch"
-                                  }
-                                ],
-                                "NodeKind": 178,
-                                "NodeType": "PropertyAccessExpression",
-                                "Text": "new Service().dispatch"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "TestAction",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "TestAction"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 9,
-                                    "NodeType": "StringLiteral",
-                                    "Text": "'Hello world!'"
-                                  }
-                                ],
-                                "NodeKind": 181,
-                                "NodeType": "NewExpression",
-                                "Text": "new TestAction('Hello world!')"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "new Service().dispatch(new TestAction('Hello world!'))"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "new Service().dispatch(new TestAction('Hello world!'));"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "myFunction",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "myFunction",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": null,
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [],
-                                "NodeKind": 70,
-                                "NodeType": "Identifier",
-                                "Text": "myFunction"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": null,
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [],
-                                "NodeKind": 9,
-                                "NodeType": "StringLiteral",
-                                "Text": "'Hello world!'"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "myFunction('Hello world!')"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "myFunction('Hello world!');"
-                      }
-                    ],
-                    "NodeKind": 206,
-                    "NodeType": "Block",
-                    "Text": "{\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }"
-                  }
-                ],
-                "NodeKind": 150,
-                "NodeType": "MethodDeclaration",
-                "Text": "public dispatchSomething() {\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }"
-              }
-            ],
-            "NodeKind": 228,
-            "NodeType": "ClassDeclaration",
-            "Text": "export class OtherService {\r\n    public dispatchSomething() {\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }\r\n\r\n}"
-          },
-          {
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-            "Modifier": 0,
-            "IsExported": true,
-            "Name": "myFunction",
-            "ExportToken": {
-              "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-              "Name": "myFunction"
-            },
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 83,
-                "NodeType": "Modifier",
-                "Text": "export"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "myFunction",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "myFunction",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": null,
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [],
-                        "NodeKind": 70,
-                        "NodeType": "Identifier",
-                        "Text": "myFunction"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "str",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "str",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": null,
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [],
-                                "NodeKind": 70,
-                                "NodeType": "Identifier",
-                                "Text": "str"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": null,
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [],
-                                "NodeKind": 135,
-                                "NodeType": "TypeNode",
-                                "Text": "string"
-                              }
-                            ],
-                            "NodeKind": 145,
-                            "NodeType": "ParameterDeclaration",
-                            "Text": "str: string"
-                          },
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 35,
-                            "NodeType": "EqualsGreaterThanToken",
-                            "Text": "=>"
-                          },
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 206,
-                            "NodeType": "Block",
-                            "Text": "{\r\n\r\n}"
-                          }
-                        ],
-                        "NodeKind": 186,
-                        "NodeType": "ArrowFunction",
-                        "Text": "(str: string) => {\r\n\r\n}"
-                      }
-                    ],
-                    "NodeKind": 225,
-                    "NodeType": "VariableDeclaration",
-                    "Text": "myFunction = (str: string) => {\r\n\r\n}"
-                  }
-                ],
-                "NodeKind": 226,
-                "NodeType": "VariableDeclarationList",
-                "Text": "const myFunction = (str: string) => {\r\n\r\n}"
-              }
-            ],
-            "NodeKind": 207,
-            "NodeType": "VariableStatement",
-            "Text": "export const myFunction = (str: string) => {\r\n\r\n}"
-          },
-          {
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": null,
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [],
-            "NodeKind": 1,
-            "NodeType": "EndOfFileToken",
-            "Text": ""
-          }
-        ],
-        "NodeKind": 264,
-        "NodeType": "SourceFile",
-        "Text": "import defaultAction, { TestAction } from './actions';\r\nimport { Service } from './service1';\r\n\r\nexport class OtherService {\r\n    public dispatchSomething() {\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }\r\n\r\n}\r\nexport const myFunction = (str: string) => {\r\n\r\n}"
-      }
-    },
-    {
-      "RootDirectory": "C:\\github\\ng-analyze\\TestProject\\",
       "Filename": "C:\\github\\ng-analyze\\TestProject\\src\\actions2.ts",
       "RootConstruct": {
         "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\actions2.ts",
@@ -1717,1120 +988,6 @@
         "NodeKind": 264,
         "NodeType": "SourceFile",
         "Text": "import { Action } from '@ngrx/store';\r\n\r\nexport class NewAction implements Action {\r\n    type = 'New action';\r\n\r\n    constructor(public name: string) { }\r\n}\r\n\r\nexport type AllActions = NewAction;"
-      }
-    },
-    {
-      "RootDirectory": "C:\\github\\ng-analyze\\TestProject\\",
-      "Filename": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-      "RootConstruct": {
-        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-        "Modifier": 0,
-        "IsExported": false,
-        "Name": "Action",
-        "ExportToken": null,
-        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-        "Constructs": [
-          {
-            "FilePath": "@ngrx/store",
-            "ImportedModules": [
-              {
-                "IsLocalImport": false,
-                "As": null,
-                "Name": "Action",
-                "Alias": null,
-                "Path": "@ngrx/store",
-                "IsNamespaceImport": false,
-                "ImportToken": null
-              }
-            ],
-            "IsLocalImport": false,
-            "RelativeImportPath": null,
-            "AbsolutePath": null,
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": "Action",
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "Action",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "Action",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "Action",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "Action"
-                          }
-                        ],
-                        "NodeKind": 241,
-                        "NodeType": "ImportSpecifier",
-                        "Text": "Action"
-                      }
-                    ],
-                    "NodeKind": 240,
-                    "NodeType": "NamedImports",
-                    "Text": "{ Action }"
-                  }
-                ],
-                "NodeKind": 238,
-                "NodeType": "ImportClause",
-                "Text": "{ Action }"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 9,
-                "NodeType": "StringLiteral",
-                "Text": "'@ngrx/store'"
-              }
-            ],
-            "NodeKind": 237,
-            "NodeType": "ImportDeclaration",
-            "Text": "import { Action } from '@ngrx/store';"
-          },
-          {
-            "FilePath": "./actions",
-            "ImportedModules": [
-              {
-                "IsLocalImport": false,
-                "As": "actions",
-                "Name": "*",
-                "Alias": null,
-                "Path": "./actions",
-                "IsNamespaceImport": true,
-                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts#*"
-              }
-            ],
-            "IsLocalImport": true,
-            "RelativeImportPath": "./actions",
-            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts",
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": "actions",
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "actions",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "actions",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": null,
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [],
-                        "NodeKind": 70,
-                        "NodeType": "Identifier",
-                        "Text": "actions"
-                      }
-                    ],
-                    "NodeKind": 239,
-                    "NodeType": "NamespaceImport",
-                    "Text": "* as actions"
-                  }
-                ],
-                "NodeKind": 238,
-                "NodeType": "ImportClause",
-                "Text": "* as actions"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 9,
-                "NodeType": "StringLiteral",
-                "Text": "'./actions'"
-              }
-            ],
-            "NodeKind": 237,
-            "NodeType": "ImportDeclaration",
-            "Text": "import * as actions from './actions';"
-          },
-          {
-            "FilePath": "./actions2",
-            "ImportedModules": [
-              {
-                "IsLocalImport": false,
-                "As": null,
-                "Name": "NewAction",
-                "Alias": "newAction",
-                "Path": "./actions2",
-                "IsNamespaceImport": false,
-                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\actions2.ts#NewAction"
-              }
-            ],
-            "IsLocalImport": true,
-            "RelativeImportPath": "./actions2",
-            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\actions2.ts",
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": "NewAction",
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "NewAction",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "NewAction",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "NewAction",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "NewAction"
-                          }
-                        ],
-                        "NodeKind": 241,
-                        "NodeType": "ImportSpecifier",
-                        "Text": "NewAction as newAction"
-                      }
-                    ],
-                    "NodeKind": 240,
-                    "NodeType": "NamedImports",
-                    "Text": "{ NewAction as newAction }"
-                  }
-                ],
-                "NodeKind": 238,
-                "NodeType": "ImportClause",
-                "Text": "{ NewAction as newAction }"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 9,
-                "NodeType": "StringLiteral",
-                "Text": "'./actions2'"
-              }
-            ],
-            "NodeKind": 237,
-            "NodeType": "ImportDeclaration",
-            "Text": "import { NewAction as newAction } from './actions2';"
-          },
-          {
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-            "Modifier": 0,
-            "IsExported": true,
-            "Name": "Service",
-            "ExportToken": {
-              "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-              "Name": "Service"
-            },
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 83,
-                "NodeType": "Modifier",
-                "Text": "export"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": null,
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [],
-                "NodeKind": 70,
-                "NodeType": "Identifier",
-                "Text": "Service"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "action",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 113,
-                    "NodeType": "Modifier",
-                    "Text": "public"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 70,
-                    "NodeType": "Identifier",
-                    "Text": "action"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "actions",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "actions",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "actions"
-                          },
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "OtherAction"
-                          }
-                        ],
-                        "NodeKind": 142,
-                        "NodeType": "QualifiedName",
-                        "Text": "actions.OtherAction"
-                      }
-                    ],
-                    "NodeKind": 158,
-                    "NodeType": "TypeReferenceNode",
-                    "Text": "actions.OtherAction"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "actions",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "actions",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "actions"
-                          },
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "OtherAction"
-                          }
-                        ],
-                        "NodeKind": 178,
-                        "NodeType": "PropertyAccessExpression",
-                        "Text": "actions.OtherAction"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": null,
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [],
-                        "NodeKind": 8,
-                        "NodeType": "NumericLiteral",
-                        "Text": "99"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": null,
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [],
-                        "NodeKind": 94,
-                        "NodeType": "PrimaryExpression",
-                        "Text": "null"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": null,
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [],
-                        "NodeKind": 9,
-                        "NodeType": "StringLiteral",
-                        "Text": "'Hello world'"
-                      }
-                    ],
-                    "NodeKind": 181,
-                    "NodeType": "NewExpression",
-                    "Text": "new actions.OtherAction(99, null, 'Hello world')"
-                  }
-                ],
-                "NodeKind": 148,
-                "NodeType": "PropertyDeclaration",
-                "Text": "public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "doSomething",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 113,
-                    "NodeType": "Modifier",
-                    "Text": "public"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 70,
-                    "NodeType": "Identifier",
-                    "Text": "doSomething"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "dispatch",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "dispatch",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "dispatch",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "dispatch",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 98,
-                                    "NodeType": "PrimaryExpression",
-                                    "Text": "this"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "dispatch"
-                                  }
-                                ],
-                                "NodeKind": 178,
-                                "NodeType": "PropertyAccessExpression",
-                                "Text": "this.dispatch"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "actions",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": "actions",
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "actions"
-                                      },
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "OtherAction"
-                                      }
-                                    ],
-                                    "NodeKind": 178,
-                                    "NodeType": "PropertyAccessExpression",
-                                    "Text": "actions.OtherAction"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 8,
-                                    "NodeType": "NumericLiteral",
-                                    "Text": "44"
-                                  }
-                                ],
-                                "NodeKind": 181,
-                                "NodeType": "NewExpression",
-                                "Text": "new actions.OtherAction(44)"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "this.dispatch(new actions.OtherAction(44))"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "this.dispatch(new actions.OtherAction(44));"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "dispatch",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "dispatch",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "dispatch",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 98,
-                                    "NodeType": "PrimaryExpression",
-                                    "Text": "this"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "dispatch"
-                                  }
-                                ],
-                                "NodeKind": 178,
-                                "NodeType": "PropertyAccessExpression",
-                                "Text": "this.dispatch"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "actions",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": "actions",
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "actions"
-                                      },
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "OtherAction"
-                                      }
-                                    ],
-                                    "NodeKind": 178,
-                                    "NodeType": "PropertyAccessExpression",
-                                    "Text": "actions.OtherAction"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 8,
-                                    "NodeType": "NumericLiteral",
-                                    "Text": "58"
-                                  }
-                                ],
-                                "NodeKind": 181,
-                                "NodeType": "NewExpression",
-                                "Text": "new actions.OtherAction(58)"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "this.dispatch(new actions.OtherAction(58))"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "this.dispatch(new actions.OtherAction(58));"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "dispatch",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "dispatch",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "dispatch",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 98,
-                                    "NodeType": "PrimaryExpression",
-                                    "Text": "this"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "dispatch"
-                                  }
-                                ],
-                                "NodeKind": 178,
-                                "NodeType": "PropertyAccessExpression",
-                                "Text": "this.dispatch"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "actions",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": "actions",
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "actions"
-                                      },
-                                      {
-                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                        "Modifier": 0,
-                                        "IsExported": false,
-                                        "Name": null,
-                                        "ExportToken": null,
-                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                        "Constructs": [],
-                                        "NodeKind": 70,
-                                        "NodeType": "Identifier",
-                                        "Text": "TestAction"
-                                      }
-                                    ],
-                                    "NodeKind": 178,
-                                    "NodeType": "PropertyAccessExpression",
-                                    "Text": "actions.TestAction"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 9,
-                                    "NodeType": "StringLiteral",
-                                    "Text": "'My name'"
-                                  }
-                                ],
-                                "NodeKind": 181,
-                                "NodeType": "NewExpression",
-                                "Text": "new actions.TestAction('My name')"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "this.dispatch(new actions.TestAction('My name'))"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "this.dispatch(new actions.TestAction('My name'));"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "dispatch",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": "dispatch",
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "dispatch",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 98,
-                                    "NodeType": "PrimaryExpression",
-                                    "Text": "this"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "dispatch"
-                                  }
-                                ],
-                                "NodeKind": 178,
-                                "NodeType": "PropertyAccessExpression",
-                                "Text": "this.dispatch"
-                              },
-                              {
-                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                "Modifier": 0,
-                                "IsExported": false,
-                                "Name": "newAction",
-                                "ExportToken": null,
-                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                "Constructs": [
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 70,
-                                    "NodeType": "Identifier",
-                                    "Text": "newAction"
-                                  },
-                                  {
-                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                                    "Modifier": 0,
-                                    "IsExported": false,
-                                    "Name": null,
-                                    "ExportToken": null,
-                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                                    "Constructs": [],
-                                    "NodeKind": 9,
-                                    "NodeType": "StringLiteral",
-                                    "Text": "'Hello'"
-                                  }
-                                ],
-                                "NodeKind": 181,
-                                "NodeType": "NewExpression",
-                                "Text": "new newAction('Hello')"
-                              }
-                            ],
-                            "NodeKind": 180,
-                            "NodeType": "CallExpression",
-                            "Text": "this.dispatch(new newAction('Hello'))"
-                          }
-                        ],
-                        "NodeKind": 209,
-                        "NodeType": "ExpressionStatement",
-                        "Text": "this.dispatch(new newAction('Hello'));"
-                      }
-                    ],
-                    "NodeKind": 206,
-                    "NodeType": "Block",
-                    "Text": "{\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }"
-                  }
-                ],
-                "NodeKind": 150,
-                "NodeType": "MethodDeclaration",
-                "Text": "public doSomething() {\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }"
-              },
-              {
-                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                "Modifier": 0,
-                "IsExported": false,
-                "Name": "dispatch",
-                "ExportToken": null,
-                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                "Constructs": [
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 70,
-                    "NodeType": "Identifier",
-                    "Text": "dispatch"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": "action",
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": null,
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [],
-                        "NodeKind": 70,
-                        "NodeType": "Identifier",
-                        "Text": "action"
-                      },
-                      {
-                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                        "Modifier": 0,
-                        "IsExported": false,
-                        "Name": "Action",
-                        "ExportToken": null,
-                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                        "Constructs": [
-                          {
-                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                            "Modifier": 0,
-                            "IsExported": false,
-                            "Name": null,
-                            "ExportToken": null,
-                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                            "Constructs": [],
-                            "NodeKind": 70,
-                            "NodeType": "Identifier",
-                            "Text": "Action"
-                          }
-                        ],
-                        "NodeKind": 158,
-                        "NodeType": "TypeReferenceNode",
-                        "Text": "Action"
-                      }
-                    ],
-                    "NodeKind": 145,
-                    "NodeType": "ParameterDeclaration",
-                    "Text": "action: Action"
-                  },
-                  {
-                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-                    "Modifier": 0,
-                    "IsExported": false,
-                    "Name": null,
-                    "ExportToken": null,
-                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-                    "Constructs": [],
-                    "NodeKind": 206,
-                    "NodeType": "Block",
-                    "Text": "{\r\n\r\n    }"
-                  }
-                ],
-                "NodeKind": 150,
-                "NodeType": "MethodDeclaration",
-                "Text": "dispatch(action: Action) {\r\n\r\n    }"
-              }
-            ],
-            "NodeKind": 228,
-            "NodeType": "ClassDeclaration",
-            "Text": "export class Service {\r\n\r\n    public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');\r\n    // modifier identifier: QualifiedName = new PropertyAccessExpression\r\n    public doSomething() {\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }\r\n\r\n    dispatch(action: Action) {\r\n\r\n    }\r\n}"
-          },
-          {
-            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
-            "Modifier": 0,
-            "IsExported": false,
-            "Name": null,
-            "ExportToken": null,
-            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
-            "Constructs": [],
-            "NodeKind": 1,
-            "NodeType": "EndOfFileToken",
-            "Text": ""
-          }
-        ],
-        "NodeKind": 264,
-        "NodeType": "SourceFile",
-        "Text": "import { Action } from '@ngrx/store';\r\nimport * as actions from './actions';\r\nimport { NewAction as newAction } from './actions2';\r\n\r\nexport class Service {\r\n\r\n    public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');\r\n    // modifier identifier: QualifiedName = new PropertyAccessExpression\r\n    public doSomething() {\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }\r\n\r\n    dispatch(action: Action) {\r\n\r\n    }\r\n}"
       }
     },
     {
@@ -4271,6 +2428,1849 @@
         "NodeKind": 264,
         "NodeType": "SourceFile",
         "Text": "import { Action } from '@ngrx/store';\r\n\r\n/**\r\n * @deprecated Use other method\r\n */\r\nexport enum ActionTypes {\r\n    TestAction = 'TestAction'\r\n}\r\n\r\nexport const OTHER_ACTION = 'Other action';\r\nexport class TestAction implements Action {\r\n    type = ActionTypes.TestAction;\r\n    constructor(public name: string) { }\r\n}\r\n\r\nexport class OtherAction implements Action {\r\n    type = OTHER_ACTION;\r\n\r\n    constructor(public age: number, public min?: number, public meta: string = 'test', public stuff: any = null, public data: number = 10) { }\r\n}\r\n\r\nexport class ThirdAction implements Action {\r\n    type = 'Third Action';\r\n\r\n    constructor(public isValid: boolean) { }\r\n}\r\n\r\nexport default class DefaultClass implements Action {\r\n    type = 'Default action';\r\n\r\n    constructor(public name: string) {}\r\n}\r\n\r\nexport type AllActions = TestAction |\r\n    OtherAction |\r\n    ThirdAction;"
+      }
+    },
+    {
+      "RootDirectory": "C:\\github\\ng-analyze\\TestProject\\",
+      "Filename": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+      "RootConstruct": {
+        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+        "Modifier": 0,
+        "IsExported": false,
+        "Name": "Action",
+        "ExportToken": null,
+        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+        "Constructs": [
+          {
+            "FilePath": "@ngrx/store",
+            "ImportedModules": [
+              {
+                "IsLocalImport": false,
+                "As": null,
+                "Name": "Action",
+                "Alias": null,
+                "Path": "@ngrx/store",
+                "IsNamespaceImport": false,
+                "ImportToken": null
+              }
+            ],
+            "IsLocalImport": false,
+            "RelativeImportPath": null,
+            "AbsolutePath": null,
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": "Action",
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "Action",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "Action",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "Action",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "Action"
+                          }
+                        ],
+                        "NodeKind": 241,
+                        "NodeType": "ImportSpecifier",
+                        "Text": "Action"
+                      }
+                    ],
+                    "NodeKind": 240,
+                    "NodeType": "NamedImports",
+                    "Text": "{ Action }"
+                  }
+                ],
+                "NodeKind": 238,
+                "NodeType": "ImportClause",
+                "Text": "{ Action }"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 9,
+                "NodeType": "StringLiteral",
+                "Text": "'@ngrx/store'"
+              }
+            ],
+            "NodeKind": 237,
+            "NodeType": "ImportDeclaration",
+            "Text": "import { Action } from '@ngrx/store';"
+          },
+          {
+            "FilePath": "./actions",
+            "ImportedModules": [
+              {
+                "IsLocalImport": false,
+                "As": "actions",
+                "Name": "*",
+                "Alias": null,
+                "Path": "./actions",
+                "IsNamespaceImport": true,
+                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts#*"
+              }
+            ],
+            "IsLocalImport": true,
+            "RelativeImportPath": "./actions",
+            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts",
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": "actions",
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "actions",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "actions",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": null,
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [],
+                        "NodeKind": 70,
+                        "NodeType": "Identifier",
+                        "Text": "actions"
+                      }
+                    ],
+                    "NodeKind": 239,
+                    "NodeType": "NamespaceImport",
+                    "Text": "* as actions"
+                  }
+                ],
+                "NodeKind": 238,
+                "NodeType": "ImportClause",
+                "Text": "* as actions"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 9,
+                "NodeType": "StringLiteral",
+                "Text": "'./actions'"
+              }
+            ],
+            "NodeKind": 237,
+            "NodeType": "ImportDeclaration",
+            "Text": "import * as actions from './actions';"
+          },
+          {
+            "FilePath": "./actions2",
+            "ImportedModules": [
+              {
+                "IsLocalImport": false,
+                "As": null,
+                "Name": "NewAction",
+                "Alias": "newAction",
+                "Path": "./actions2",
+                "IsNamespaceImport": false,
+                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\actions2.ts#NewAction"
+              }
+            ],
+            "IsLocalImport": true,
+            "RelativeImportPath": "./actions2",
+            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\actions2.ts",
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": "NewAction",
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "NewAction",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "NewAction",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "NewAction",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "NewAction"
+                          }
+                        ],
+                        "NodeKind": 241,
+                        "NodeType": "ImportSpecifier",
+                        "Text": "NewAction as newAction"
+                      }
+                    ],
+                    "NodeKind": 240,
+                    "NodeType": "NamedImports",
+                    "Text": "{ NewAction as newAction }"
+                  }
+                ],
+                "NodeKind": 238,
+                "NodeType": "ImportClause",
+                "Text": "{ NewAction as newAction }"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 9,
+                "NodeType": "StringLiteral",
+                "Text": "'./actions2'"
+              }
+            ],
+            "NodeKind": 237,
+            "NodeType": "ImportDeclaration",
+            "Text": "import { NewAction as newAction } from './actions2';"
+          },
+          {
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+            "Modifier": 0,
+            "IsExported": true,
+            "Name": "Service",
+            "ExportToken": {
+              "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+              "Name": "Service"
+            },
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 83,
+                "NodeType": "Modifier",
+                "Text": "export"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 70,
+                "NodeType": "Identifier",
+                "Text": "Service"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "action",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 113,
+                    "NodeType": "Modifier",
+                    "Text": "public"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 70,
+                    "NodeType": "Identifier",
+                    "Text": "action"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "actions",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "actions",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "actions"
+                          },
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "OtherAction"
+                          }
+                        ],
+                        "NodeKind": 142,
+                        "NodeType": "QualifiedName",
+                        "Text": "actions.OtherAction"
+                      }
+                    ],
+                    "NodeKind": 158,
+                    "NodeType": "TypeReferenceNode",
+                    "Text": "actions.OtherAction"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "actions",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "actions",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "actions"
+                          },
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "OtherAction"
+                          }
+                        ],
+                        "NodeKind": 178,
+                        "NodeType": "PropertyAccessExpression",
+                        "Text": "actions.OtherAction"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": null,
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [],
+                        "NodeKind": 8,
+                        "NodeType": "NumericLiteral",
+                        "Text": "99"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": null,
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [],
+                        "NodeKind": 94,
+                        "NodeType": "PrimaryExpression",
+                        "Text": "null"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": null,
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [],
+                        "NodeKind": 9,
+                        "NodeType": "StringLiteral",
+                        "Text": "'Hello world'"
+                      }
+                    ],
+                    "NodeKind": 181,
+                    "NodeType": "NewExpression",
+                    "Text": "new actions.OtherAction(99, null, 'Hello world')"
+                  }
+                ],
+                "NodeKind": 148,
+                "NodeType": "PropertyDeclaration",
+                "Text": "public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "doSomething",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 113,
+                    "NodeType": "Modifier",
+                    "Text": "public"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 70,
+                    "NodeType": "Identifier",
+                    "Text": "doSomething"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "dispatch",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "dispatch",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "dispatch",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "dispatch",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 98,
+                                    "NodeType": "PrimaryExpression",
+                                    "Text": "this"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "dispatch"
+                                  }
+                                ],
+                                "NodeKind": 178,
+                                "NodeType": "PropertyAccessExpression",
+                                "Text": "this.dispatch"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "actions",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": "actions",
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "actions"
+                                      },
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "OtherAction"
+                                      }
+                                    ],
+                                    "NodeKind": 178,
+                                    "NodeType": "PropertyAccessExpression",
+                                    "Text": "actions.OtherAction"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 8,
+                                    "NodeType": "NumericLiteral",
+                                    "Text": "44"
+                                  }
+                                ],
+                                "NodeKind": 181,
+                                "NodeType": "NewExpression",
+                                "Text": "new actions.OtherAction(44)"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "this.dispatch(new actions.OtherAction(44))"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "this.dispatch(new actions.OtherAction(44));"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "dispatch",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "dispatch",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "dispatch",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 98,
+                                    "NodeType": "PrimaryExpression",
+                                    "Text": "this"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "dispatch"
+                                  }
+                                ],
+                                "NodeKind": 178,
+                                "NodeType": "PropertyAccessExpression",
+                                "Text": "this.dispatch"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "actions",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": "actions",
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "actions"
+                                      },
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "OtherAction"
+                                      }
+                                    ],
+                                    "NodeKind": 178,
+                                    "NodeType": "PropertyAccessExpression",
+                                    "Text": "actions.OtherAction"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 8,
+                                    "NodeType": "NumericLiteral",
+                                    "Text": "58"
+                                  }
+                                ],
+                                "NodeKind": 181,
+                                "NodeType": "NewExpression",
+                                "Text": "new actions.OtherAction(58)"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "this.dispatch(new actions.OtherAction(58))"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "this.dispatch(new actions.OtherAction(58));"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "dispatch",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "dispatch",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "dispatch",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 98,
+                                    "NodeType": "PrimaryExpression",
+                                    "Text": "this"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "dispatch"
+                                  }
+                                ],
+                                "NodeKind": 178,
+                                "NodeType": "PropertyAccessExpression",
+                                "Text": "this.dispatch"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "actions",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": "actions",
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "actions"
+                                      },
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "TestAction"
+                                      }
+                                    ],
+                                    "NodeKind": 178,
+                                    "NodeType": "PropertyAccessExpression",
+                                    "Text": "actions.TestAction"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 9,
+                                    "NodeType": "StringLiteral",
+                                    "Text": "'My name'"
+                                  }
+                                ],
+                                "NodeKind": 181,
+                                "NodeType": "NewExpression",
+                                "Text": "new actions.TestAction('My name')"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "this.dispatch(new actions.TestAction('My name'))"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "this.dispatch(new actions.TestAction('My name'));"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "dispatch",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "dispatch",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "dispatch",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 98,
+                                    "NodeType": "PrimaryExpression",
+                                    "Text": "this"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "dispatch"
+                                  }
+                                ],
+                                "NodeKind": 178,
+                                "NodeType": "PropertyAccessExpression",
+                                "Text": "this.dispatch"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "newAction",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "newAction"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 9,
+                                    "NodeType": "StringLiteral",
+                                    "Text": "'Hello'"
+                                  }
+                                ],
+                                "NodeKind": 181,
+                                "NodeType": "NewExpression",
+                                "Text": "new newAction('Hello')"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "this.dispatch(new newAction('Hello'))"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "this.dispatch(new newAction('Hello'));"
+                      }
+                    ],
+                    "NodeKind": 206,
+                    "NodeType": "Block",
+                    "Text": "{\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }"
+                  }
+                ],
+                "NodeKind": 150,
+                "NodeType": "MethodDeclaration",
+                "Text": "public doSomething() {\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "dispatch",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 70,
+                    "NodeType": "Identifier",
+                    "Text": "dispatch"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "action",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": null,
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [],
+                        "NodeKind": 70,
+                        "NodeType": "Identifier",
+                        "Text": "action"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "Action",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "Action"
+                          }
+                        ],
+                        "NodeKind": 158,
+                        "NodeType": "TypeReferenceNode",
+                        "Text": "Action"
+                      }
+                    ],
+                    "NodeKind": 145,
+                    "NodeType": "ParameterDeclaration",
+                    "Text": "action: Action"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 206,
+                    "NodeType": "Block",
+                    "Text": "{\r\n\r\n    }"
+                  }
+                ],
+                "NodeKind": 150,
+                "NodeType": "MethodDeclaration",
+                "Text": "dispatch(action: Action) {\r\n\r\n    }"
+              }
+            ],
+            "NodeKind": 228,
+            "NodeType": "ClassDeclaration",
+            "Text": "export class Service {\r\n\r\n    public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');\r\n    // modifier identifier: QualifiedName = new PropertyAccessExpression\r\n    public doSomething() {\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }\r\n\r\n    dispatch(action: Action) {\r\n\r\n    }\r\n}"
+          },
+          {
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": null,
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [],
+            "NodeKind": 1,
+            "NodeType": "EndOfFileToken",
+            "Text": ""
+          }
+        ],
+        "NodeKind": 264,
+        "NodeType": "SourceFile",
+        "Text": "import { Action } from '@ngrx/store';\r\nimport * as actions from './actions';\r\nimport { NewAction as newAction } from './actions2';\r\n\r\nexport class Service {\r\n\r\n    public action: actions.OtherAction = new actions.OtherAction(99, null, 'Hello world');\r\n    // modifier identifier: QualifiedName = new PropertyAccessExpression\r\n    public doSomething() {\r\n        this.dispatch(new actions.OtherAction(44));\r\n\r\n        this.dispatch(new actions.OtherAction(58));\r\n\r\n        this.dispatch(new actions.TestAction('My name'));\r\n\r\n        this.dispatch(new newAction('Hello'));\r\n    }\r\n\r\n    dispatch(action: Action) {\r\n\r\n    }\r\n}"
+      }
+    },
+    {
+      "RootDirectory": "C:\\github\\ng-analyze\\TestProject\\",
+      "Filename": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+      "RootConstruct": {
+        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+        "Modifier": 0,
+        "IsExported": false,
+        "Name": "defaultAction",
+        "ExportToken": null,
+        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+        "Constructs": [
+          {
+            "FilePath": "./actions",
+            "ImportedModules": [
+              {
+                "IsLocalImport": false,
+                "As": null,
+                "Name": "TestAction",
+                "Alias": null,
+                "Path": "./actions",
+                "IsNamespaceImport": false,
+                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts#TestAction"
+              }
+            ],
+            "IsLocalImport": true,
+            "RelativeImportPath": "./actions",
+            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\actions.ts",
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": "defaultAction",
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "defaultAction",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 70,
+                    "NodeType": "Identifier",
+                    "Text": "defaultAction"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "TestAction",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "TestAction",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "TestAction"
+                          }
+                        ],
+                        "NodeKind": 241,
+                        "NodeType": "ImportSpecifier",
+                        "Text": "TestAction"
+                      }
+                    ],
+                    "NodeKind": 240,
+                    "NodeType": "NamedImports",
+                    "Text": "{ TestAction }"
+                  }
+                ],
+                "NodeKind": 238,
+                "NodeType": "ImportClause",
+                "Text": "defaultAction, { TestAction }"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 9,
+                "NodeType": "StringLiteral",
+                "Text": "'./actions'"
+              }
+            ],
+            "NodeKind": 237,
+            "NodeType": "ImportDeclaration",
+            "Text": "import defaultAction, { TestAction } from './actions';"
+          },
+          {
+            "FilePath": "./service1",
+            "ImportedModules": [
+              {
+                "IsLocalImport": false,
+                "As": null,
+                "Name": "Service",
+                "Alias": null,
+                "Path": "./service1",
+                "IsNamespaceImport": false,
+                "ImportToken": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts#Service"
+              }
+            ],
+            "IsLocalImport": true,
+            "RelativeImportPath": "./service1",
+            "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service1.ts",
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": "Service",
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "Service",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "Service",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "Service",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 70,
+                            "NodeType": "Identifier",
+                            "Text": "Service"
+                          }
+                        ],
+                        "NodeKind": 241,
+                        "NodeType": "ImportSpecifier",
+                        "Text": "Service"
+                      }
+                    ],
+                    "NodeKind": 240,
+                    "NodeType": "NamedImports",
+                    "Text": "{ Service }"
+                  }
+                ],
+                "NodeKind": 238,
+                "NodeType": "ImportClause",
+                "Text": "{ Service }"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 9,
+                "NodeType": "StringLiteral",
+                "Text": "'./service1'"
+              }
+            ],
+            "NodeKind": 237,
+            "NodeType": "ImportDeclaration",
+            "Text": "import { Service } from './service1';"
+          },
+          {
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+            "Modifier": 0,
+            "IsExported": true,
+            "Name": "OtherService",
+            "ExportToken": {
+              "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+              "Name": "OtherService"
+            },
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 83,
+                "NodeType": "Modifier",
+                "Text": "export"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 70,
+                "NodeType": "Identifier",
+                "Text": "OtherService"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "dispatchSomething",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 113,
+                    "NodeType": "Modifier",
+                    "Text": "public"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": null,
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [],
+                    "NodeKind": 70,
+                    "NodeType": "Identifier",
+                    "Text": "dispatchSomething"
+                  },
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "Service",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "Service",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "Service",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "Service",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": "Service",
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "Service"
+                                      }
+                                    ],
+                                    "NodeKind": 181,
+                                    "NodeType": "NewExpression",
+                                    "Text": "new Service()"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "dispatch"
+                                  }
+                                ],
+                                "NodeKind": 178,
+                                "NodeType": "PropertyAccessExpression",
+                                "Text": "new Service().dispatch"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "defaultAction",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "defaultAction"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 9,
+                                    "NodeType": "StringLiteral",
+                                    "Text": "'Hello world!'"
+                                  }
+                                ],
+                                "NodeKind": 181,
+                                "NodeType": "NewExpression",
+                                "Text": "new defaultAction('Hello world!')"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "new Service().dispatch(new defaultAction('Hello world!'))"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "new Service().dispatch(new defaultAction('Hello world!'));"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "Service",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "Service",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "Service",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": "Service",
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [
+                                      {
+                                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                        "Modifier": 0,
+                                        "IsExported": false,
+                                        "Name": null,
+                                        "ExportToken": null,
+                                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                        "Constructs": [],
+                                        "NodeKind": 70,
+                                        "NodeType": "Identifier",
+                                        "Text": "Service"
+                                      }
+                                    ],
+                                    "NodeKind": 181,
+                                    "NodeType": "NewExpression",
+                                    "Text": "new Service()"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "dispatch"
+                                  }
+                                ],
+                                "NodeKind": 178,
+                                "NodeType": "PropertyAccessExpression",
+                                "Text": "new Service().dispatch"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": "TestAction",
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 70,
+                                    "NodeType": "Identifier",
+                                    "Text": "TestAction"
+                                  },
+                                  {
+                                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                    "Modifier": 0,
+                                    "IsExported": false,
+                                    "Name": null,
+                                    "ExportToken": null,
+                                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                    "Constructs": [],
+                                    "NodeKind": 9,
+                                    "NodeType": "StringLiteral",
+                                    "Text": "'Hello world!'"
+                                  }
+                                ],
+                                "NodeKind": 181,
+                                "NodeType": "NewExpression",
+                                "Text": "new TestAction('Hello world!')"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "new Service().dispatch(new TestAction('Hello world!'))"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "new Service().dispatch(new TestAction('Hello world!'));"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "myFunction",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "myFunction",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": null,
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [],
+                                "NodeKind": 70,
+                                "NodeType": "Identifier",
+                                "Text": "myFunction"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": null,
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [],
+                                "NodeKind": 9,
+                                "NodeType": "StringLiteral",
+                                "Text": "'Hello world!'"
+                              }
+                            ],
+                            "NodeKind": 180,
+                            "NodeType": "CallExpression",
+                            "Text": "myFunction('Hello world!')"
+                          }
+                        ],
+                        "NodeKind": 209,
+                        "NodeType": "ExpressionStatement",
+                        "Text": "myFunction('Hello world!');"
+                      }
+                    ],
+                    "NodeKind": 206,
+                    "NodeType": "Block",
+                    "Text": "{\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }"
+                  }
+                ],
+                "NodeKind": 150,
+                "NodeType": "MethodDeclaration",
+                "Text": "public dispatchSomething() {\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }"
+              }
+            ],
+            "NodeKind": 228,
+            "NodeType": "ClassDeclaration",
+            "Text": "export class OtherService {\r\n    public dispatchSomething() {\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }\r\n\r\n}"
+          },
+          {
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+            "Modifier": 0,
+            "IsExported": true,
+            "Name": "myFunction",
+            "ExportToken": {
+              "AbsolutePath": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+              "Name": "myFunction"
+            },
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": null,
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [],
+                "NodeKind": 83,
+                "NodeType": "Modifier",
+                "Text": "export"
+              },
+              {
+                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                "Modifier": 0,
+                "IsExported": false,
+                "Name": "myFunction",
+                "ExportToken": null,
+                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                "Constructs": [
+                  {
+                    "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                    "Modifier": 0,
+                    "IsExported": false,
+                    "Name": "myFunction",
+                    "ExportToken": null,
+                    "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                    "Constructs": [
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": null,
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [],
+                        "NodeKind": 70,
+                        "NodeType": "Identifier",
+                        "Text": "myFunction"
+                      },
+                      {
+                        "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                        "Modifier": 0,
+                        "IsExported": false,
+                        "Name": "str",
+                        "ExportToken": null,
+                        "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                        "Constructs": [
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": "str",
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": null,
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [],
+                                "NodeKind": 70,
+                                "NodeType": "Identifier",
+                                "Text": "str"
+                              },
+                              {
+                                "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                                "Modifier": 0,
+                                "IsExported": false,
+                                "Name": null,
+                                "ExportToken": null,
+                                "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                                "Constructs": [],
+                                "NodeKind": 135,
+                                "NodeType": "TypeNode",
+                                "Text": "string"
+                              }
+                            ],
+                            "NodeKind": 145,
+                            "NodeType": "ParameterDeclaration",
+                            "Text": "str: string"
+                          },
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 35,
+                            "NodeType": "EqualsGreaterThanToken",
+                            "Text": "=>"
+                          },
+                          {
+                            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+                            "Modifier": 0,
+                            "IsExported": false,
+                            "Name": null,
+                            "ExportToken": null,
+                            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+                            "Constructs": [],
+                            "NodeKind": 206,
+                            "NodeType": "Block",
+                            "Text": "{\r\n\r\n}"
+                          }
+                        ],
+                        "NodeKind": 186,
+                        "NodeType": "ArrowFunction",
+                        "Text": "(str: string) => {\r\n\r\n}"
+                      }
+                    ],
+                    "NodeKind": 225,
+                    "NodeType": "VariableDeclaration",
+                    "Text": "myFunction = (str: string) => {\r\n\r\n}"
+                  }
+                ],
+                "NodeKind": 226,
+                "NodeType": "VariableDeclarationList",
+                "Text": "const myFunction = (str: string) => {\r\n\r\n}"
+              }
+            ],
+            "NodeKind": 207,
+            "NodeType": "VariableStatement",
+            "Text": "export const myFunction = (str: string) => {\r\n\r\n}"
+          },
+          {
+            "ContainingFileName": "C:\\github\\ng-analyze\\TestProject\\src\\service2.ts",
+            "Modifier": 0,
+            "IsExported": false,
+            "Name": null,
+            "ExportToken": null,
+            "RootDir": "C:\\github\\ng-analyze\\TestProject\\",
+            "Constructs": [],
+            "NodeKind": 1,
+            "NodeType": "EndOfFileToken",
+            "Text": ""
+          }
+        ],
+        "NodeKind": 264,
+        "NodeType": "SourceFile",
+        "Text": "import defaultAction, { TestAction } from './actions';\r\nimport { Service } from './service1';\r\n\r\nexport class OtherService {\r\n    public dispatchSomething() {\r\n        new Service().dispatch(new defaultAction('Hello world!'));\r\n        new Service().dispatch(new TestAction('Hello world!'));\r\n                                // NewExpression - (Identifier, StringLiteral)\r\n        myFunction('Hello world!');\r\n    }\r\n\r\n}\r\nexport const myFunction = (str: string) => {\r\n\r\n}"
       }
     }
   ]

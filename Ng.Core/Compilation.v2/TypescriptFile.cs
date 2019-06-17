@@ -191,7 +191,14 @@ namespace Ng.Core.Compilation.v2
 
         public TypescriptDecorator(Decorator node, string rootDir) : base(node, rootDir)
         {
-            var options = node.GetDescendants(false).OfKind(SyntaxKind.ObjectLiteralExpression).First().GetText();
+            // (\w*?):\s?(.*?)[,\}]
+            var options = string.Join(",", node.GetDescendants(false).OfKind(SyntaxKind.ObjectLiteralExpression).First()
+                .GetText()
+                .Replace("{", "").Replace("}", "")
+                .Replace("\r\n", "")
+                .Split(',')
+                .Select(pair => string.Join(":", pair.Split(':').Select(s => $"\"{s.Replace("'", "").Trim()}\""))));
+            
             if (Name.Equals("Component"))
             {
                 Options = JsonConvert.DeserializeObject<ComponentOptions>(options);
@@ -351,6 +358,7 @@ namespace Angular
 * - `ChangeDetectionStrategy#OnPush` sets the strategy to `CheckOnce` (on demand).
 * - `ChangeDetectionStrategy#Default` sets the strategy to `CheckAlways`.
 */
+        [JsonIgnore]
         public object ChangeDetection { get; set; }
         /**
          * Defines the set of injectable objects that are visible to its view DOM children.

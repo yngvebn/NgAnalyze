@@ -106,6 +106,16 @@ namespace Ng.App
             AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
             TsProject<TypescriptFile> projectV2 = TsProject<TypescriptFile>.Load<TypescriptFile>(tsConfig, TypescriptFile.Load);
             List<HtmlDocument> templates = projectV2.RunTraverser(new ExtractHtmlDocuments()).ToList();
+            List<Angular.ComponentOptions> components = projectV2.RunTraverser(new ExtractAllComponentOptions()).ToList();
+
+            foreach (var component in components)
+            {
+                var usagesInTemplates =
+                    templates.Where(t => t.DocumentNode.GetElementsByTagName(component.Selector).Any());
+                if(!usagesInTemplates.Any())
+                    Console.WriteLine($"{component.Selector} does not seem to be in use");
+            }
+
             File.WriteAllText(@"..\..\..\TestProject\compiled.json", JsonConvert.SerializeObject(projectV2, Formatting.Indented));
             //TsProject<TypescriptCompilation> project = TsProject<TypescriptCompilation>.Load(tsConfig, (TypescriptCompilation.CreateCompiled));
             Console.Clear();
@@ -353,6 +363,19 @@ namespace Ng.App
                 yield return $"'{Guid.NewGuid().ToString("N").Substring(r.Next(1), r.Next(22))}'";
                 yield return $"'{Guid.NewGuid().ToString("N").Substring(r.Next(1), r.Next(22))}'";
             }
+        }
+    }
+
+    public static class HtmlNodeExtensions
+    {
+        public static IEnumerable<HtmlNode> GetElementsByName(this HtmlNode parent, string name)
+        {
+            return parent.Descendants().Where(node => node.Name == name);
+        }
+
+        public static IEnumerable<HtmlNode> GetElementsByTagName(this HtmlNode parent, string name)
+        {
+            return parent.Descendants(name);
         }
     }
 }

@@ -157,6 +157,24 @@ namespace Ng.Core
         }
     }
 
+    public class ExtractAllComponentOptions: ITraverseTree<TypescriptFile, IEnumerable<ComponentOptions>>
+    {
+        public IEnumerable<ComponentOptions> Traverse(IEnumerable<TypescriptFile> input)
+        {
+            return input.SelectMany(i => i.RunTraverser(new ExtractAllComponentOptionsFromFile()));
+        }
+    }
+
+    public class ExtractAllComponentOptionsFromFile : ITraverseTypescriptFile<IEnumerable<ComponentOptions>>
+    {
+        public IEnumerable<ComponentOptions> Traverse(TypescriptFile file)
+        {
+            return file.RootConstruct.Flatten()
+                .Where(c => c is TypescriptDecorator && c.Name.Equals("Component"))
+                .OfType<TypescriptDecorator>().Select(d => d.Options as ComponentOptions);
+        }
+    }
+
     public class ExtractHtmlDocuments : ITraverseTree<TypescriptFile, IEnumerable<HtmlDocument>>
     {
         public IEnumerable<HtmlDocument> Traverse(IEnumerable<TypescriptFile> input)
@@ -185,7 +203,7 @@ namespace Ng.Core
             } else if (!string.IsNullOrEmpty(componentOptions.TemplateUrl))
             {
                 
-                var fromRelative = Path.GetFullPath($"{Path.Combine(Path.GetDirectoryName(decorator.ContainingFileName), componentOptions.TemplateUrl.Replace("/", "\\"))}.ts");
+                var fromRelative = Path.GetFullPath($"{Path.Combine(Path.GetDirectoryName(decorator.ContainingFileName), componentOptions.TemplateUrl.Replace("/", "\\"))}");
                 if (!File.Exists(fromRelative))
                 {
                     Console.WriteLine($"Template {fromRelative} for component {decorator.ContainingFileName} not found");
