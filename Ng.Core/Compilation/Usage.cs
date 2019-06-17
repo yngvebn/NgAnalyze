@@ -1,7 +1,9 @@
-﻿using Zu.TypeScript.TsTypes;
+﻿using System.Diagnostics;
+using Zu.TypeScript.TsTypes;
 
 namespace Ng.Core
 {
+    [DebuggerDisplay("{Compilation.FileName}")]
     public class Usage
     {
         public TypescriptCompilation Compilation { get; set; }

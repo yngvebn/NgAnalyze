@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Zu.TypeScript.TsTypes;
 
 namespace Ng.Core.Conversion
@@ -146,6 +147,39 @@ namespace Ng.Core.Conversion
         public static string ToCamelCase(this string str)
         {
             return Char.ToLowerInvariant(str[0]) + str.Substring(1);
+        }
+
+        public static string ToRelativeImportPath(this string path, string relativeTo)
+        {
+            var importPath = new Uri(relativeTo, UriKind.Absolute).MakeRelativeUri(new Uri(path, UriKind.Absolute)).ToString();
+            importPath = Regex.Replace(importPath, @"\.ts$", "");
+            if (!importPath.StartsWith(".")) importPath = "./" + importPath;
+
+            return importPath;
+        }
+
+        public static string ConvertDashToCamelCase(this string input)
+        {
+            StringBuilder sb = new StringBuilder();
+            bool caseFlag = false;
+            for (int i = 0; i < input.Length; ++i)
+            {
+                char c = input[i];
+                if (c == '-')
+                {
+                    caseFlag = true;
+                }
+                else if (caseFlag || i == 0)
+                {
+                    sb.Append(char.ToUpper(c));
+                    caseFlag = false;
+                }
+                else
+                {
+                    sb.Append(char.ToLower(c));
+                }
+            }
+            return sb.ToString();
         }
     }
 }

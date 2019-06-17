@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Ng.Core.Conversion;
 using Zu.TypeScript;
 using Zu.TypeScript.Change;
 using Zu.TypeScript.TsTypes;
@@ -41,10 +42,15 @@ namespace Ng.Core
 
         public Imports FindImport(TypeScriptClass cls)
         {
+            return FindImport(cls.FileName, cls.Name);
+        }
+
+        public Imports FindImport(string filename, string name)
+        {
             return Imports
                 .Where(i => i.IsLocalImport)
-                .SingleOrDefault(i => (i.AbsolutePath.Equals(cls.FileName) && i.ImportedModules.Any(m => m.Name.Equals(cls.Name))) ||
-                                      i.AbsolutePath.Equals(cls.FileName) && i.ImportedModules.Any(m => m.Name.Equals("*"))
+                .SingleOrDefault(i => (i.AbsolutePath.Equals(filename) && i.ImportedModules.Any(m => m.Name.Equals(name))) ||
+                                      i.AbsolutePath.Equals(filename) && i.ImportedModules.Any(m => m.Name.Equals("*"))
                 );
         }
 
@@ -123,12 +129,13 @@ namespace Ng.Core
         {
             List<Imports> toChange = new List<Imports>();
             var allImports = new List<ImportedModule>();
-            allImports.AddRange(toAdd);
+            allImports.AddRange(toAdd.Select(n => new ImportedModule(n.Name, n.IsLocalImport ? n.Path.ToRelativeImportPath(this.FileName) : n.Path)));
             allImports.AddRange(removedUsagesImports);
 
-            foreach (var byPath in allImports.GroupBy(i => i.Path))
+            foreach (var byPath in allImports.GroupBy(i =>  i.Path))
             {
-                var existingImportsForPath = Imports.SingleOrDefault(i => i.FilePath == byPath.Key);
+
+                var existingImportsForPath = Imports.SingleOrDefault(i => i.FilePath == byPath.Key && !i.ImportedModules.Any(m => m.IsNamespaceImport));
                 if (existingImportsForPath != null)
                 {
                     var newImports = toAdd.Where(imp => !existingImportsForPath.ImportedModules.Any(i => i.Name.Equals(imp.Name)));
@@ -139,11 +146,18 @@ namespace Ng.Core
                     
                     toChange.Add(existingImportsForPath);
                 }
+                else
+                {
+                    toChange.Add(new Imports(this.FileName, this.Root, byPath.ToArray()));
+                }
             }
-            
 
-            foreach (var import in toChange)
+            var lastImport = Imports.Last(i => i.ImportDeclaration != null);
+
+            foreach (var import in toChange.Where(i => i.ImportDeclaration != null))
                 change.ChangeNode(import.ImportDeclaration, import.Serialize());
+            foreach (var import in toChange.Where(i => i.ImportDeclaration == null))
+                change.InsertAfter(lastImport.ImportDeclaration, $"\n{import.Serialize()}");
             return change;
         }
 

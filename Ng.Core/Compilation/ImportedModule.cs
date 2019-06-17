@@ -1,39 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using Zu.TypeScript.TsTypes;
 
 namespace Ng.Core
 {
     public class ImportedModule : IEqualityComparer<ImportedModule>, IEquatable<ImportedModule>
     {
-        private ImportSpecifier _importSpecifier;
+        public bool IsLocalImport { get; }
+        [JsonIgnore]
+        private readonly ImportSpecifier _importSpecifier;
+        [JsonIgnore]
         private StringLiteral _path;
-        private NamespaceImport i;
-        public string As { get; private set; }
-        public string Name { get; private set; }
-        public string Path { get; private set; }
-        public bool IsNamespaceImport => !string.IsNullOrEmpty(As);
 
-        public ImportedModule(ImportSpecifier importSpecifier, StringLiteral path)
+        private readonly string _absolutePath;
+
+        [JsonIgnore]
+        private readonly NamespaceImport _namespaceImport;
+
+        public string As => _namespaceImport?.Children.OfKind(SyntaxKind.Identifier).First().IdentifierStr;
+        private readonly string _name = "*";
+        public string Name => ExtractName(IsNamespaceImport || _importSpecifier == null ? _name : _importSpecifier.GetText());
+        public string Alias => ExtractAlias(IsNamespaceImport || _importSpecifier == null ? _name : _importSpecifier.GetText());
+
+        private string ExtractAlias(string s)
+        {
+            var segments = s.Split(' ');
+            return segments.Length > 1 && segments.Contains("as") ? segments.Last() : null;
+        }
+
+        private string ExtractName(string s)
+        {
+            var segments = s.Split(' ');
+            return segments.First();
+        }
+
+        public string Path { get; private set; }
+        public bool IsNamespaceImport => _namespaceImport != null;
+        public string ImportToken => !string.IsNullOrEmpty(_absolutePath) && !string.IsNullOrEmpty(Name) ? $"{_absolutePath}#{Name}" : null;
+
+        public ImportedModule(ImportSpecifier importSpecifier, StringLiteral path, string absolutePath = null)
         {
             _importSpecifier = importSpecifier;
             _path = path;
+            _absolutePath = absolutePath;
 
             Path = _path.GetText().Replace("'", "");
-            Name = _importSpecifier.GetText();
         }
 
-        public ImportedModule(string type, string from)
+
+        public ImportedModule(NamespaceImport namespaceImport, StringLiteral path, string absolutePath = null)
         {
-            Name = type;
+            _namespaceImport = namespaceImport;
+            _path = path;
+            _absolutePath = absolutePath;
+
+            Path = _path.GetText().Replace("'", "");
+        }
+
+        public ImportedModule(string type, string from, bool isLocalImport = false)
+        {
+            IsLocalImport = isLocalImport;
+
+            _name = type;
             Path = from;
         }
-
-        public ImportedModule(NamespaceImport i, StringLiteral path)
+        public ImportedModule(string type, string from, string absolutePath)
         {
-            Name = "*";
-            As = i.IdentifierStr;
-            Path = path.GetText().Replace("'", "");
+            IsLocalImport = !string.IsNullOrEmpty(absolutePath);
+            _absolutePath = absolutePath;
+
+            _name = type;
+            Path = from;
         }
 
         public bool Equals(ImportedModule x, ImportedModule y)

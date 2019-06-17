@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Ng.Contracts;
 using Ng.Core;
 using Ng.Core.Compilation.v2;
@@ -29,7 +30,7 @@ namespace Ng.App
             ChangeAst = new ChangeAST();
         }
 
-        public void ChangeNode(Node actionNode, string conversionOutput)
+        public void ChangeNode(INode actionNode, string conversionOutput)
         {
             ChangeAst.ChangeNode(actionNode, conversionOutput);
         }
@@ -98,111 +99,141 @@ namespace Ng.App
             //    @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\App\Components\MyBets\MyBetsDate\MyBetsRaceday\MyBetsBet\MyBetsBetDetails\Prize\my-bet-prize.component.ts";
             //TypeScriptAST ast = new TypeScriptAST(File.ReadAllText(fileName), fileName);
             var path = Path.GetFullPath(@"..\..\..\TestProject\tsconfig.json");// 
-            path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
-            path = @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
+            //path = @"C:\Arbeid\etoto\code\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
+            //path = @"C:\github\beta.rikstoto.no\src\Rikstoto.Toto\tsconfig.test.json";
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
+            TsProject<TypescriptFile> projectV2 = TsProject<TypescriptFile>.Load<TypescriptFile>(tsConfig, TypescriptFile.Load);
+            File.WriteAllText(@"..\..\..\TestProject\compiled.json", JsonConvert.SerializeObject(projectV2, Formatting.Indented));
+            //TsProject<TypescriptCompilation> project = TsProject<TypescriptCompilation>.Load(tsConfig, (TypescriptCompilation.CreateCompiled));
+            Console.Clear();
+            Console.WriteLine($"Compilation done - {projectV2.Files.Count} files");
 
-            TsProject<TypescriptCompilation> project = TsProject<TypescriptCompilation>.Load(tsConfig, (TypescriptCompilation.CreateCompiled));
+            //var allClasses = project.Compiled.SelectMany(p => p.Classes);
 
-            //TsProject<TypescriptFile> projectV2 = TsProject<TypescriptFile>.Load<TypescriptFile>(tsConfig, TypescriptFile.Load);
+            ////var projectWideImports = project.Compiled.SelectMany(c => c.Imports).Select(i => i.AbsolutePath).Distinct().ToList();
+            ////var allFilenames = project.Files.Select(c => c.SourceStr).Distinct().ToList();
+            ////var filesNotReferencced = allFilenames.Where(filename =>
+            ////    projectWideImports.All(import => import != filename)).ToList();
 
-            var allClasses = project.Compiled.SelectMany(p => p.Classes);
+            //ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
+            //ImportedModule effectsActions = new ImportedModule("Actions", "@ngrx/effects");
+            //var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType)))
+            //    .Where(a => a.FileName.EndsWith("form-rows-gallop.actions.ts"))
+            //    .ToList();
+            //var allUsagesOfActions = project.FindUsages(effectsActions);
+            //var changes = new Changes();
+            //foreach (var group in allActions.GroupBy(a => a.FileName))
+            //{
+            //    var file = group.First().Compilation;
+            //    var change = changes.Get(file);
+            //    List<ImportedModule> newImports = new List<ImportedModule>();
+            //    List<ImportedModule> removedImports = new List<ImportedModule>();
+            //    string union =
+            //        $"\n\nconst all = union({{ {string.Join(", ", group.Select(action => action.Name.ToCamelCase()))} }});";
 
-            //var projectWideImports = project.Compiled.SelectMany(c => c.Imports).Select(i => i.AbsolutePath).Distinct().ToList();
-            //var allFilenames = project.Files.Select(c => c.SourceStr).Distinct().ToList();
-            //var filesNotReferencced = allFilenames.Where(filename =>
-            //    projectWideImports.All(import => import != filename)).ToList();
+            //    newImports.Add(new ImportedModule("union", "@ngrx/store"));
+            //    change.Append(union);
 
-            ImportedModule storeActionType = new ImportedModule("Action", "@ngrx/store");
-            var allActions = allClasses.Where(c => c.Inherits.Any(i => i.Equals(storeActionType)))
-                .Where(a => a.FileName.EndsWith("form-rows-gallop.actions.ts"))
-                .ToList();
+            //    var typeAlias = file.TypeAliases.LastOrDefault();
+            //    var unionUsages = project.FindUsages(typeAlias);
+            //    var typeAliasName = typeAlias?.Name;
+            //    if (typeAlias != null)
+            //    {
+            //        if (typeAliasName.Equals("Actions"))
+            //        {
+            //            typeAliasName = Path.GetFileNameWithoutExtension(file.FileName).Replace(".", "-")
+            //                .ConvertDashToCamelCase();
+            //            Console.WriteLine($"Name Actions not recommended for type union. Will rename to {Path.GetFileNameWithoutExtension(file.FileName).Replace(".", "-").ConvertDashToCamelCase()}");
+            //        }
+            //        change.Delete(typeAlias.Node);
+            //        string newTypeAlias = $"\nexport type {typeAliasName} = typeof all;\n";
+            //        change.Append(newTypeAlias);
+            //    }
+            //    ImportedModule typeAliasImport = new ImportedModule(typeAliasName, file.FileName, true);
 
-            var changes = new Changes();
-            foreach (var group in allActions.GroupBy(a => a.FileName))
-            {
-                var file = group.First().Compilation;
-                var change = changes.Get(file);
+            //    foreach (var action in group)
+            //    {
+            //        var conversion = new ClassToCreateAction().Convert(action);
+            //        change.ChangeNode(action.Node, conversion.Output);
+            //        newImports.AddRange(conversion.RequiredImports);
+            //        removedImports.AddRange(conversion.RemovedImports);
+            //        var usages = project.FindUsages(action).ToList();
+            //        var importsToAdd = new List<ImportedModule>();
+            //        var importsToRemove = new List<ImportedModule>();
 
-                List<ImportedModule> newImports = new List<ImportedModule>();
-                List<ImportedModule> removedImports = new List<ImportedModule>();
-                List<string> actionNames = new List<string>();
-                foreach (var action in group)
-                {
-                    var conversion = new ClassToCreateAction().Convert(action);
-                    change.ChangeNode(action.Node, conversion.Output);
-                    newImports.AddRange(conversion.RequiredImports);
-                    removedImports.AddRange(conversion.RemovedImports);
-                    var usages = project.FindUsages(action).ToList();
-                    var importsToAdd = new List<ImportedModule>();
-                    var importsToRemove = new List<ImportedModule>();
+            //        foreach (var usagesByFile in usages.GroupBy(a => a.Compilation.FileName))
+            //        {
+            //            var usagesFile = usagesByFile.First().Compilation;
+            //            var changesInUsages = changes.Get(usagesFile);
+            //            var effectsActionsInFile = allUsagesOfActions.Where(c => c.Compilation.FileName == usagesFile.FileName);
 
-                    foreach (var usagesByFile in usages.GroupBy(a => a.Compilation.FileName))
-                    {
-                        var usagesFile = usagesByFile.First().Compilation;
-                        var changesInUsages = changes.Get(usagesFile);
-
-                        List<ImportedModule> newUsagesImports = new List<ImportedModule>();
-                        List<ImportedModule> removedUsagesImports = new List<ImportedModule>();
-
-                        foreach (var usage in usagesByFile)
-                        {
-                            var usageConversion = new UsageToNewAction().Convert(usage);
-                            changesInUsages.ChangeNode(usageConversion.NodeToTarget as Node, usageConversion.Output);
-                            newUsagesImports.AddRange(usageConversion.RequiredImports);
-                            removedUsagesImports.AddRange(usageConversion.RemovedImports);
-                        }
-                        importsToAdd.AddRange(newUsagesImports);
-                        importsToRemove.AddRange(removedUsagesImports);
-                        changesInUsages.AddRemoveImports(newUsagesImports.Distinct(), removedUsagesImports);
-         
-
-                        //File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
-                    }
-                    
-                }
-                // TODO: Create actions-union
-
-                foreach (var queuedChange in changes.All)
-                {
-                    //usagesFile.AddRemoveImports(changesInUsages.ChangeAst, newUsagesImports.Distinct(), removedUsagesImports);
-                    var newUsagesSource = queuedChange.GetChangedSource();
-                    //File.WriteAllText(usagesFile.FileName, newUsagesSource);
-
-                    File.WriteAllText(Path.Combine(Path.GetDirectoryName(queuedChange.FileName), $"{Path.GetFileName(queuedChange.FileName)}"), newUsagesSource);
-                }
-                string union =
-                    $"\n\nconst all = union({{ {string.Join(", ", group.Select(action => action.Name.ToCamelCase()))} }});";
-
-                newImports.Add(new ImportedModule("union", "@ngrx/store"));
-                change.Append(union);
-
-                var typeAlias = file.TypeAliases.LastOrDefault();
-                if(typeAlias != null) { 
-                    change.Delete(typeAlias.Node);
-                    string newTypeAlias = $"\nexport type {typeAlias.Name} = typeof all;\n";
-                    change.Append(newTypeAlias);
-                }
-                change.AddRemoveImports(newImports.Distinct(), removedImports.Distinct());
-                var newSource = change.GetChangedSource();
-                //File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
-                File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileName(file.FileName)}"), newSource);
-            }
-
-            ////foreach (var inherits in firstAction.Classes.First().Inherits)
-            ////{
-            ////    Console.WriteLine(inherits);
-            ////}
+            //            List<ImportedModule> newUsagesImports = new List<ImportedModule>();
+            //            List<ImportedModule> removedUsagesImports = new List<ImportedModule>();
+            //            if (typeAlias != null)
+            //            {
+            //                foreach (var actionsReference in effectsActionsInFile)
+            //                {
+            //                    try
+            //                    {
+            //                        changesInUsages.ChangeNode(actionsReference.Node, $"Actions<{typeAliasName}>");
+            //                        newUsagesImports.Add(typeAliasImport);
+            //                    }
+            //                    catch
+            //                    {
+            //                        // fails second time, but that's okay.
+            //                    }
+            //                }
+            //            }
+                      
 
 
-            //var firstUsage = usages.First();
-            //var change = new ChangeAST();
-            //change.ChangeNode(firstUsage.Node, "/* New value goes here */");
-            //var newSource = change.GetChangedSource(firstUsage.Compilation.Ast.SourceStr);
-            //File.WriteAllText(firstUsage.Compilation.FileName, newSource);
-            Console.WriteLine("Done!");
-            Console.ReadLine();
+            //            foreach (var usage in usagesByFile)
+            //            {
+            //                var usageConversion = new UsageToNewAction().Convert(usage);
+            //                changesInUsages.ChangeNode(usageConversion.NodeToTarget as Node, usageConversion.Output);
+            //                newUsagesImports.AddRange(usageConversion.RequiredImports);
+            //                removedUsagesImports.AddRange(usageConversion.RemovedImports);
+            //            }
+            //            importsToAdd.AddRange(newUsagesImports);
+            //            importsToRemove.AddRange(removedUsagesImports);
+            //            changesInUsages.AddRemoveImports(newUsagesImports.Distinct(), removedUsagesImports);
+
+
+            //            //File.WriteAllText(Path.Combine(Path.GetDirectoryName(usagesFile.FileName), $"{Path.GetFileNameWithoutExtension(usagesFile.FileName)}.ts"), newUsagesSource);
+            //        }
+
+            //    }
+            //    // TODO: Create actions-union
+
+            //    foreach (var queuedChange in changes.All)
+            //    {
+            //        //usagesFile.AddRemoveImports(changesInUsages.ChangeAst, newUsagesImports.Distinct(), removedUsagesImports);
+            //        var newUsagesSource = queuedChange.GetChangedSource();
+            //        //File.WriteAllText(usagesFile.FileName, newUsagesSource);
+
+            //        File.WriteAllText(Path.Combine(Path.GetDirectoryName(queuedChange.FileName), $"{Path.GetFileName(queuedChange.FileName)}"), newUsagesSource);
+            //    }
+            //    change.AddRemoveImports(newImports.Distinct(), removedImports.Distinct());
+
+            //    var newSource = change.GetChangedSource();
+            //    //File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileNameWithoutExtension(file.FileName)}.ts"), newSource);
+            //    File.WriteAllText(Path.Combine(Path.GetDirectoryName(file.FileName), $"{Path.GetFileName(file.FileName)}"), newSource);
+            //}
+
+            //////foreach (var inherits in firstAction.Classes.First().Inherits)
+            //////{
+            //////    Console.WriteLine(inherits);
+            //////}
+
+
+            ////var firstUsage = usages.First();
+            ////var change = new ChangeAST();
+            ////change.ChangeNode(firstUsage.Node, "/* New value goes here */");
+            ////var newSource = change.GetChangedSource(firstUsage.Compilation.Ast.SourceStr);
+            ////File.WriteAllText(firstUsage.Compilation.FileName, newSource);
+            //Console.WriteLine("Done!");
+            //Console.ReadLine();
         }
 
         private static void GenerateSpecIfApplicable(string file)

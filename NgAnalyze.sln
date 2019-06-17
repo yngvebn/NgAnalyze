@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ng.App", "Ng.App\Ng.App.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ng.Core", "Ng.Core\Ng.Core.csproj", "{A6535B8C-0A54-4287-952F-0301244F5D86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ng.Tests", "Ng.Tests\Ng.Tests.csproj", "{19021083-3638-4DF7-B0C9-F1E3E0E91145}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A6535B8C-0A54-4287-952F-0301244F5D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6535B8C-0A54-4287-952F-0301244F5D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6535B8C-0A54-4287-952F-0301244F5D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19021083-3638-4DF7-B0C9-F1E3E0E91145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19021083-3638-4DF7-B0C9-F1E3E0E91145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19021083-3638-4DF7-B0C9-F1E3E0E91145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19021083-3638-4DF7-B0C9-F1E3E0E91145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

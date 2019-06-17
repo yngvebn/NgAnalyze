@@ -1,4 +1,4 @@
-import { Action, createAction, props } from '@ngrx/store'
+import { Action } from '@ngrx/store';
 
 /**
  * @deprecated Use other method
@@ -8,24 +8,28 @@ export enum ActionTypes {
 }
 
 export const OTHER_ACTION = 'Other action';
-export const testAction = createAction(
-	ActionTypes.TestAction,
-	(name: string) => ({ name })
-);
+export class TestAction implements Action {
+    type = ActionTypes.TestAction;
+    constructor(public name: string) { }
+}
 
+export class OtherAction implements Action {
+    type = OTHER_ACTION;
 
-export const otherAction = createAction(
-	OTHER_ACTION,
-	(age: number, min?: number, meta: string = 'test', stuff: any = null, data: number = 10) => ({ age, min, meta, stuff, data })
-);
+    constructor(public age: number, public min?: number, public meta: string = 'test', public stuff: any = null, public data: number = 10) { }
+}
 
+export class ThirdAction implements Action {
+    type = 'Third Action';
 
-export const thirdAction = createAction(
-	'Third Action',
-	(isValid: boolean) => ({ isValid })
-);
+    constructor(public isValid: boolean) { }
+}
 
+export default class DefaultClass implements Action {
+    type = 'Default action';
 
+    constructor(public name: string) {}
+}
 
 export type AllActions = TestAction |
     OtherAction |

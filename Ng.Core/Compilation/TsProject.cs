@@ -3,14 +3,83 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Ng.Contracts;
+using Ng.Core.Compilation.v2;
 using Zu.TypeScript;
 using Zu.TypeScript.TsTypes;
+using Token = Ng.Core.Compilation.v2.Token;
 
 namespace Ng.Core
 {
     public static class TypespecificExtensions
     {
+        public static IEnumerable<Usage> FindUsages(this TsProject<TypescriptCompilation> tsProject, ImportedModule first)
+        {
+            var compilations = tsProject.Compiled.Where(c => c.Imports != null &&
+                                           c.Imports.Any(i => i.ImportedModules.Contains(first))).ToList();
+            List<Usage> positions = new List<Usage>();
+
+            foreach (var compilation in compilations)
+            {
+                var potentialUsages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
+                    .Where(i => i.IdentifierStr.Equals(first.Name))
+                    .Where(i => !i.GetAncestors().Any(ancestor => ancestor is ImportDeclaration));
+                positions.AddRange(potentialUsages.Select(usage => new Usage
+                {
+                    Compilation = compilation,
+                    Node = usage
+                }));
+            }
+
+            return positions;
+        }
+
+        public static IEnumerable<Usage> FindUsages(this TsProject<TypescriptCompilation> tsProject, TypeAliasDefinition first)
+        {
+            string fileName = (first.Node.Ast.RootNode as SourceFile).FileName;
+            var compilations = tsProject.Compiled.Where(c => c.Imports != null &&
+                                           c.Imports
+                                               .Where(i => i.IsLocalImport)
+                                               .Any(i => (i.AbsolutePath.Equals(fileName) && i.ImportedModules.Any(m => m.Name.Equals(first.Name))) ||
+                                                         i.AbsolutePath.Equals(fileName) && i.ImportedModules.Any(m => m.Name.Equals("*"))
+                                                         )).ToList();
+            List<Usage> positions = new List<Usage>();
+
+            foreach (var compilation in compilations)
+            {
+                var import = compilation.FindImport(first.Name, fileName);
+                if (import == null) continue;
+                if (import.ImportedModules.Count == 1 && import.ImportedModules.First().IsNamespaceImport)
+                {
+                    var namespaceImport = import.ImportedModules.First();
+                    var potentialUsages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
+                        .Where(i => IsNamespaceImportedClass(first.Name, i, namespaceImport));
+
+                    var usages = potentialUsages.Where(p => p.Parent is NewExpression || p.Parent.Parent is NewExpression).Select(p => p.Parent is NewExpression ? p.Parent : p.Parent.Parent);
+                    positions.AddRange(usages.Select(usage => new Usage
+                    {
+                        Compilation = compilation,
+                        Node = usage,
+                        IsNamespaceImport = true
+                    }));
+                }
+                else
+                {
+                    var potentialUsages = compilation.Ast.RootNode.GetDescendants().OfType<Identifier>()
+                        .Where(i => i.IdentifierStr.Equals(first.Name));
+                    var usages = potentialUsages.Where(p => p.Parent is NewExpression || p.Parent.Parent is NewExpression).Select(p => p.Parent is NewExpression ? p.Parent : p.Parent.Parent);
+                    positions.AddRange(usages.Select(usage => new Usage
+                    {
+                        Compilation = compilation,
+                        Node = usage
+
+                    }));
+                }
+            }
+
+            return positions;
+        }
         public static IEnumerable<Usage> FindUsages(this TsProject<TypescriptCompilation> tsProject, TypeScriptClass first)
         {
             var compilations = tsProject.Compiled.Where(c => c.Imports != null &&
@@ -57,16 +126,64 @@ namespace Ng.Core
         }
 
 
-        private static bool IsNamespaceImportedClass(TypeScriptClass classToMatch, Identifier identifier, ImportedModule namespaceImport)
+        private static bool IsNamespaceImportedClass(TypeScriptClass classToMatch, Identifier identifier,
+            ImportedModule namespaceImport)
+        {
+            return IsNamespaceImportedClass(classToMatch.Name, identifier, namespaceImport);
+        }
+
+
+        private static bool IsNamespaceImportedClass(string name, Identifier identifier, ImportedModule namespaceImport)
         {
             var firstChild = identifier.Parent.Children.FirstOrDefault();
-            return identifier.IdentifierStr.Equals(classToMatch.Name) && firstChild != null && firstChild.IdentifierStr.Equals(namespaceImport.As);
+            return identifier.IdentifierStr.Equals(name) && firstChild != null && firstChild.IdentifierStr.Equals(namespaceImport.As);
         }
+    }
+
+    public class FindAllReferences : ITraverseTree<TypescriptFile, IEnumerable<TypescriptConstruct>>
+    {
+        private readonly Token _token;
+
+        public FindAllReferences(Token token)
+        {
+            _token = token;
+        }
+
+        public IEnumerable<TypescriptConstruct> Traverse(IEnumerable<TypescriptFile> input)
+        {
+            return input.SelectMany(i => i.RunTraverser(new FindAllReferencesInFile(_token)));
+        }
+    }
+
+    public class FindAllReferencesInFile : ITraverseTypescriptFile<IEnumerable<TypescriptConstruct>>
+    {
+        private readonly Token _token;
+
+        public FindAllReferencesInFile(Token token)
+        {
+            _token = token;
+        }
+
+        public IEnumerable<TypescriptConstruct> Traverse(TypescriptFile file)
+        {
+            return file.RootConstruct.Flatten().Where(c => c.ExportToken != null).Where(c => c.ExportToken.Equals(_token));
+        }
+    }
+
+    public interface ITraverseTypescriptFile<TOut>
+    {
+        TOut Traverse(TypescriptFile file);
+    }
+
+    public interface ITraverseTree<T, TOut>
+    {
+        TOut Traverse(IEnumerable<T> input);
     }
 
     public class TsProject<T>
     {
         public List<T> Compiled = new List<T>();
+        [JsonIgnore]
         public List<TypeScriptAST> Files = new List<TypeScriptAST>();
 
         private readonly TsConfig _tsconfig;
@@ -87,7 +204,6 @@ namespace Ng.Core
             Parallel.ForEach(projectFiles, file =>
             {
                 i++;
-                Console.SetCursorPosition(0, 0);
                 Console.WriteLine($"Loading {i}/{projectFiles.Count} - {file}");
                 files.Add(new TypeScriptAST(file, Path.GetFileName(file)));
             });
@@ -98,7 +214,6 @@ namespace Ng.Core
             Parallel.ForEach(projectFiles, file =>
             {
                 i++;
-                Console.SetCursorPosition(0, 0);
                 Console.WriteLine($"Compiling {i}/{projectFiles.Count} - {file}");
                 compiled.Add(createCompiled(file, tsconfig.RootDir));
             });
@@ -114,6 +229,11 @@ namespace Ng.Core
             {
                 yield return file;
             }
+        }
+
+        public TOut RunTraverser<TOut>(ITraverseTree<T, TOut> traverser)
+        {
+            return traverser.Traverse(this.Compiled);
         }
 
 

@@ -13,15 +13,16 @@ namespace Ng.Core
         private readonly string _sourceFileName;
         private readonly string _root;
         public ImportDeclaration ImportDeclaration { get; }
-        private StringLiteral _path;
+        private StringLiteral _pathNode;
+        private string _path;
         public string[] Modules => ImportedModules.Select(i => i.Name).ToArray();
-        public string FilePath => _path.Text;
+        public string FilePath => _path;
 
         public void Add(IEnumerable<ImportedModule> newImports)
         {
             this.ImportedModules.AddRange(newImports);
         }
-        
+
         public void Remove(IEnumerable<ImportedModule> newImports)
         {
             this.ImportedModules = ImportedModules.Where(i => !newImports.Any(removed => removed.Equals(i))).ToList();
@@ -29,7 +30,7 @@ namespace Ng.Core
 
         public string Serialize()
         {
-            return $"import {{ {string.Join(", ", Modules.OrderBy(c => c))} }} from {_path.GetText()}";
+            return $"import {{ {string.Join(", ", Modules.OrderBy(c => c))} }} from '{_path}';";
         }
 
         public string RelativeImportPath
@@ -53,8 +54,8 @@ namespace Ng.Core
 
                 var fromRelative = Path.GetFullPath($"{Path.Combine(Path.GetDirectoryName(_sourceFileName), FilePath.Replace("/", "\\"))}.ts");
                 if (File.Exists(fromRelative)) return fromRelative;
-
                 return null;
+
             }
         }
 
@@ -67,15 +68,28 @@ namespace Ng.Core
             _sourceFileName = sourceFileName;
             _root = root;
             ImportDeclaration = importDeclaration;
-            _path = importDeclaration.Children.OfType<StringLiteral>().First();
-            var namedImports = importDeclaration.GetDescendants(false).OfType<ImportSpecifier>().Select(i => new ImportedModule(i, _path)).ToArray();
+            _pathNode = importDeclaration.Children.OfType<StringLiteral>().First();
+            _path = _pathNode.Text;
+            var namedImports = importDeclaration.GetDescendants(false).OfType<ImportSpecifier>().Select(i => new ImportedModule(i, _pathNode)).ToArray();
             var namespaceImports = importDeclaration.GetDescendants(false).OfType<NamespaceImport>()
-                .Select(i => new ImportedModule(i, _path)).ToArray();
+                .Select(i => new ImportedModule(i, _pathNode)).ToArray();
             var allImports = new List<ImportedModule>();
             allImports.AddRange(namedImports);
             allImports.AddRange(namespaceImports);
             ImportedModules = allImports;
         }
+
+
+        public Imports(string sourceFileName, string root, params ImportedModule[] imports)
+        {
+            _sourceFileName = sourceFileName;
+            _root = root;
+            _path = imports.First().Path;
+            var allImports = new List<ImportedModule>();
+            allImports.AddRange(imports);
+            ImportedModules = allImports;
+        }
+
 
         public string GetAbsoluteImport()
         {
@@ -89,7 +103,7 @@ namespace Ng.Core
                 if (skipSelfAndSubdirectories && RelativeImportPath.StartsWith("./") && !RelativeImportPath.Contains("..")) return;
                 if (skipSelfAndSubdirectories && !RelativeImportPath.Contains("../")) return;
 
-                change.ChangeNode(_path, $" '{GetAbsoluteImport()}'");
+                change.ChangeNode(_pathNode, $" '{GetAbsoluteImport()}'");
             }
             catch (Exception ex)
             {
@@ -104,7 +118,7 @@ namespace Ng.Core
             {
                 if (Regex.Matches(RelativeImportPath, @"\.\.").Count <= maxNumberOfRelativeLevels)
                 {
-                    change.ChangeNode(_path, $" '{RelativeImportPath}'");
+                    change.ChangeNode(_pathNode, $" '{RelativeImportPath}'");
                 }
             }
             catch (Exception ex)
