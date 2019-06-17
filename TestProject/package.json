@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@angular/core": "^8.0.1",
     "@ngrx/store": "^7.4.0"
   }
 }

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Ng.Contracts;
 using Ng.Core;
@@ -104,6 +105,7 @@ namespace Ng.App
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
             TsProject<TypescriptFile> projectV2 = TsProject<TypescriptFile>.Load<TypescriptFile>(tsConfig, TypescriptFile.Load);
+            List<HtmlDocument> templates = projectV2.RunTraverser(new ExtractHtmlDocuments()).ToList();
             File.WriteAllText(@"..\..\..\TestProject\compiled.json", JsonConvert.SerializeObject(projectV2, Formatting.Indented));
             //TsProject<TypescriptCompilation> project = TsProject<TypescriptCompilation>.Load(tsConfig, (TypescriptCompilation.CreateCompiled));
             Console.Clear();

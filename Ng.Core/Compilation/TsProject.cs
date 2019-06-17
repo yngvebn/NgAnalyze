@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Angular;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Ng.Contracts;
 using Ng.Core.Compilation.v2;
@@ -152,6 +154,49 @@ namespace Ng.Core
         public IEnumerable<TypescriptConstruct> Traverse(IEnumerable<TypescriptFile> input)
         {
             return input.SelectMany(i => i.RunTraverser(new FindAllReferencesInFile(_token)));
+        }
+    }
+
+    public class ExtractHtmlDocuments : ITraverseTree<TypescriptFile, IEnumerable<HtmlDocument>>
+    {
+        public IEnumerable<HtmlDocument> Traverse(IEnumerable<TypescriptFile> input)
+        {
+            return input.SelectMany(i => i.RunTraverser(new ExtractHtmlDocumentsFromFile()));
+        }
+
+    }
+
+    public class ExtractHtmlDocumentsFromFile : ITraverseTypescriptFile<IEnumerable<HtmlDocument>>
+    {
+        public IEnumerable<HtmlDocument> Traverse(TypescriptFile file)
+        {
+            var components = file.RootConstruct.Flatten().Where(c => c is TypescriptDecorator && c.Name.Equals("Component"));
+            return components.OfType<TypescriptDecorator>().Select(this.ExtractHtmlDocument);
+        }
+
+        private HtmlDocument ExtractHtmlDocument(TypescriptDecorator decorator)
+        {
+            var componentOptions = decorator.Options as ComponentOptions;
+            var doc = new HtmlDocument();
+
+            if (!string.IsNullOrEmpty(componentOptions.Template))
+            {
+                doc.LoadHtml(componentOptions.Template);
+            } else if (!string.IsNullOrEmpty(componentOptions.TemplateUrl))
+            {
+                
+                var fromRelative = Path.GetFullPath($"{Path.Combine(Path.GetDirectoryName(decorator.ContainingFileName), componentOptions.TemplateUrl.Replace("/", "\\"))}.ts");
+                if (!File.Exists(fromRelative))
+                {
+                    Console.WriteLine($"Template {fromRelative} for component {decorator.ContainingFileName} not found");
+                };
+                
+                doc.LoadHtml(File.ReadAllText(fromRelative));
+
+            }
+
+            return doc;
+
         }
     }
 
