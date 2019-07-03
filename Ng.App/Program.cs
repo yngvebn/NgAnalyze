@@ -9,6 +9,7 @@ using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Ng.Contracts;
 using Ng.Core;
+using Ng.Core.Compilation.CodeChangers;
 using Ng.Core.Compilation.v2;
 using Ng.Core.Conversion;
 using Zu.TypeScript;
@@ -105,6 +106,10 @@ namespace Ng.App
             TsConfig tsConfig = new TsConfigReader().LoadFromFile(path);
             AutoMapper.Mapper.Initialize(config => Mapping.Configuration(config, tsConfig.RootDir));
             TsProject<TypescriptFile> projectV2 = TsProject<TypescriptFile>.Load<TypescriptFile>(tsConfig, TypescriptFile.Load);
+
+            projectV2.RunCodeChanger(new ConvertToNgrx8Actions(@"C:\github\ng-analyze\TestProject\src\actions.ts"));
+
+
             List<HtmlDocument> templates = projectV2.RunTraverser(new ExtractHtmlDocuments()).ToList();
             List<Angular.ComponentOptions> components = projectV2.RunTraverser(new ExtractAllComponentOptions()).ToList();
 

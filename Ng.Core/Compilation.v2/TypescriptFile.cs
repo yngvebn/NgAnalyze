@@ -201,7 +201,13 @@ namespace Ng.Core.Compilation.v2
             
             if (Name.Equals("Component"))
             {
-                Options = JsonConvert.DeserializeObject<ComponentOptions>(options);
+                try { 
+                Options = JsonConvert.DeserializeObject<ComponentOptions>($"{{ {options} }}");
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 

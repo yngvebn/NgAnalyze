@@ -7,6 +7,7 @@ using Angular;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Ng.Contracts;
+using Ng.Core.Compilation.CodeChangers;
 using Ng.Core.Compilation.v2;
 using Zu.TypeScript;
 using Zu.TypeScript.TsTypes;
@@ -278,7 +279,14 @@ namespace Ng.Core
             {
                 i++;
                 Console.WriteLine($"Compiling {i}/{projectFiles.Count} - {file}");
-                compiled.Add(createCompiled(file, tsconfig.RootDir));
+                try
+                {
+                    compiled.Add(createCompiled(file, tsconfig.RootDir));
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             });
             Compiled = compiled;
         }
@@ -300,5 +308,9 @@ namespace Ng.Core
         }
 
 
+        public void RunCodeChanger(IChangeCode<T> convertToNgrx8Actions)
+        {
+            convertToNgrx8Actions.PerformChange(this.Compiled);
+        }
     }
 }
