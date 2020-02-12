@@ -39,6 +39,7 @@ namespace Ng.App
 
         public string GetChangedSource()
         {
+            // This is a comment on line 42
             Compilation.AddRemoveImports(ChangeAst, ImportsToAdd.Distinct(), ImportsToRemove.Distinct());
             return ChangeAst.GetChangedSource(Compilation.Ast.SourceStr);
         }
